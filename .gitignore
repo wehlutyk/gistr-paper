@@ -1,0 +1,13 @@
+# Latexmk stuff
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.dvi
+*.fdb_latexmk
+*.fls
+*.log
+*.run.xml
+*.xdv
+
+*.pdf
