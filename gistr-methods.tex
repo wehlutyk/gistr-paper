@@ -57,105 +57,104 @@ the latter), none of which can help characterise the more intricate
 changes that linguistic content undergoes in the ecological setting we
 aim to simulate.
 
-\subsubsection{Web and smartphone
-experiments}\label{web-and-smartphone-experiments}
-
-Complementary to laboratory studies and to approaches using online
-digital traces, a new empirical approach based on Web browsers and
-mobile computing is striking a different balance in the trade-offs of
-experimental work; it seems very promising in addressing the problems
-outlined above. Indeed, browsers (both on desktop and mobile) and
-smartphones have evolved into powerful, ubiquitous application
-environments for which one can develop any kind of experiment involving
-text, graphics, and human interactions. At the cost of increased
-engineering requirements and a different approach to subject
-recruitment, Web and smartphone experiments give the designer full
-control over what data is collected and the way interactions are framed
-(similar to laboratory experiments), and make it possible to quickly
-collect data sets at scales comparable to what filtered and cleaned
-digital traces provide.
-
-This approach makes a number of unusual trade-offs, the benefits of
-which can be summarised as follows:
-
-\begin{itemize}
-\item
-  \emph{Control}: similar to laboratory experiments, and unlike digital
-  trace analysis, it is possible to use complex designs where all the
-  interactions of the subjects are framed and observed by the
-  experimenter. This includes for instance the presentation of the
-  experiment (e.g.~as a game or a self-improvement aid, aside from being
-  a scientific study) and, more importantly, the ways in which the
-  system mediates the interactions between the subjects.
-\item
-  \emph{Scale}: if and when needed, the technical platform can scale the
-  number of subjects to the tens of thousands at low marginal cost.
-  Interactions between subjects can also scale to involve synchronous or
-  asynchronous contact between hundreds of people, without having to
-  manage per-subject scheduling.
-\item
-  \emph{Speed of data collection}: once the initial development is
-  completed (see costs below), the data collection cycle is short. One
-  day can be enough to collect \num{1000}--\num{10000} usable data
-  points, a size comparable to the final substitutions set extracted and
-  analysed in the previous chapter. This is especially relevant for
-  exploratory work which is made much easier with shorter
-  trial-and-error cycles.
-\item
-  \emph{Flexible recruitment}: while also a challenge (see costs below),
-  subject recruitment is more flexible than in the laboratory: services
-  like Prolific Academic\footnote{\url{https://www.prolific.ac/}.} let
-  the experimenter recruit at reasonable costs in pools of tens of
-  thousands of subjects with fine-grained demographic filters. Wider
-  audiences can be achieved by offering non-financial rewards, framing
-  the experiment as a self-improvement application, or turning it into a
-  game.
-\end{itemize}
-
-The corresponding costs are the following:
-
-\begin{itemize}
-\item
-  \emph{Technical challenge}: developing Web and smartphone experiments
-  involves a substantial amount of engineering, and makes use of
-  technologies that most researchers, even technical, are not familiar
-  with. While a couple of all-in-one kits exist,\footnote{See e.g.
-    \url{http://funf.org/} and \url{http://www.epicollect.net/}.}
-  creating an experiment that meets one's research questions requires
-  learning average skills in most of the technologies at play: a native
-  or cross-platform smartphone development environment, Web application
-  development, backend server programming, and some server
-  administration skills. Most importantly, the paradigms and problems
-  encountered are new to researchers: control flow is asynchronous due
-  to network communication and the user interface, and technicalities
-  such as user management or email validation can grow into difficult
-  engineering challenges.
-\item
-  \emph{Spam-control}: subjects are not constrained or encouraged by the
-  face-to-face interaction of a laboratory experiment, neither are they
-  (in most experiments) in the course of an interaction with friends
-  that provides natural incentives for what they write, as can be the
-  case with digital traces. Participants must have an incentive to
-  perform the experiment's tasks well. If the spam introduced by one
-  subject can be isolated in the design of the experiment, one
-  possibility is to filter it after data collection and make payment
-  depend on its prevalence. But if the spam introduced by one subject
-  naturally propagates to data seen by other subjects in the experiment,
-  as is the case for transmission chains, effective anti-spam pressures
-  and motivations need to be factored into the design.
-\item
-  \emph{Recruitment cost}: while recruiting up to a few hundred subjects
-  is cheaper than the equivalent for a laboratory experiment (not
-  counting the development cost),\footnote{Global competition on online
-    platforms like Prolific Academic drives subject payments down.} and
-  is easy to manage for fast prototyping and pilot tests, recruitment
-  cost rises linearly with the number of subjects and the time they
-  spend on the experiment, unless a different strategy is used. Turning
-  an experiment into a playful application or an application useful to
-  the subjects (effectively making them users) involves yet another set
-  of skills, can prove challenging, and must be factored into the
-  development cost.
-\end{itemize}
+%%\subsubsection{Web and smartphone experiments}\label{web-and-smartphone-experiments}
+%%
+%%Complementary to laboratory studies and to approaches using online
+%%digital traces, a new empirical approach based on Web browsers and
+%%mobile computing is striking a different balance in the trade-offs of
+%%experimental work; it seems very promising in addressing the problems
+%%outlined above. Indeed, browsers (both on desktop and mobile) and
+%%smartphones have evolved into powerful, ubiquitous application
+%%environments for which one can develop any kind of experiment involving
+%%text, graphics, and human interactions. At the cost of increased
+%%engineering requirements and a different approach to subject
+%%recruitment, Web and smartphone experiments give the designer full
+%%control over what data is collected and the way interactions are framed
+%%(similar to laboratory experiments), and make it possible to quickly
+%%collect data sets at scales comparable to what filtered and cleaned
+%%digital traces provide.
+%%
+%%This approach makes a number of unusual trade-offs, the benefits of
+%%which can be summarised as follows:
+%%
+%%\begin{itemize}
+%%\item
+%%  \emph{Control}: similar to laboratory experiments, and unlike digital
+%%  trace analysis, it is possible to use complex designs where all the
+%%  interactions of the subjects are framed and observed by the
+%%  experimenter. This includes for instance the presentation of the
+%%  experiment (e.g.~as a game or a self-improvement aid, aside from being
+%%  a scientific study) and, more importantly, the ways in which the
+%%  system mediates the interactions between the subjects.
+%%\item
+%%  \emph{Scale}: if and when needed, the technical platform can scale the
+%%  number of subjects to the tens of thousands at low marginal cost.
+%%  Interactions between subjects can also scale to involve synchronous or
+%%  asynchronous contact between hundreds of people, without having to
+%%  manage per-subject scheduling.
+%%\item
+%%  \emph{Speed of data collection}: once the initial development is
+%%  completed (see costs below), the data collection cycle is short. One
+%%  day can be enough to collect \num{1000}--\num{10000} usable data
+%%  points, a size comparable to the final substitutions set extracted and
+%%  analysed in the previous chapter. This is especially relevant for
+%%  exploratory work which is made much easier with shorter
+%%  trial-and-error cycles.
+%%\item
+%%  \emph{Flexible recruitment}: while also a challenge (see costs below),
+%%  subject recruitment is more flexible than in the laboratory: services
+%%  like Prolific Academic\footnote{\url{https://www.prolific.ac/}.} let
+%%  the experimenter recruit at reasonable costs in pools of tens of
+%%  thousands of subjects with fine-grained demographic filters. Wider
+%%  audiences can be achieved by offering non-financial rewards, framing
+%%  the experiment as a self-improvement application, or turning it into a
+%%  game.
+%%\end{itemize}
+%%
+%%The corresponding costs are the following:
+%%
+%%\begin{itemize}
+%%\item
+%%  \emph{Technical challenge}: developing Web and smartphone experiments
+%%  involves a substantial amount of engineering, and makes use of
+%%  technologies that most researchers, even technical, are not familiar
+%%  with. While a couple of all-in-one kits exist,\footnote{See e.g.
+%%    \url{http://funf.org/} and \url{http://www.epicollect.net/}.}
+%%  creating an experiment that meets one's research questions requires
+%%  learning average skills in most of the technologies at play: a native
+%%  or cross-platform smartphone development environment, Web application
+%%  development, backend server programming, and some server
+%%  administration skills. Most importantly, the paradigms and problems
+%%  encountered are new to researchers: control flow is asynchronous due
+%%  to network communication and the user interface, and technicalities
+%%  such as user management or email validation can grow into difficult
+%%  engineering challenges.
+%%\item
+%%  \emph{Spam-control}: subjects are not constrained or encouraged by the
+%%  face-to-face interaction of a laboratory experiment, neither are they
+%%  (in most experiments) in the course of an interaction with friends
+%%  that provides natural incentives for what they write, as can be the
+%%  case with digital traces. Participants must have an incentive to
+%%  perform the experiment's tasks well. If the spam introduced by one
+%%  subject can be isolated in the design of the experiment, one
+%%  possibility is to filter it after data collection and make payment
+%%  depend on its prevalence. But if the spam introduced by one subject
+%%  naturally propagates to data seen by other subjects in the experiment,
+%%  as is the case for transmission chains, effective anti-spam pressures
+%%  and motivations need to be factored into the design.
+%%\item
+%%  \emph{Recruitment cost}: while recruiting up to a few hundred subjects
+%%  is cheaper than the equivalent for a laboratory experiment (not
+%%  counting the development cost),\footnote{Global competition on online
+%%    platforms like Prolific Academic drives subject payments down.} and
+%%  is easy to manage for fast prototyping and pilot tests, recruitment
+%%  cost rises linearly with the number of subjects and the time they
+%%  spend on the experiment, unless a different strategy is used. Turning
+%%  an experiment into a playful application or an application useful to
+%%  the subjects (effectively making them users) involves yet another set
+%%  of skills, can prove challenging, and must be factored into the
+%%  development cost.
+%%\end{itemize}
 
 \subsubsection{General setup for Web-based transmission
 chains}\label{general-setup-for-web-based-transmission-chains}
@@ -187,31 +186,15 @@ context; no distraction task is used between the reading and writing
 phases, and the material incentive for the task is purely monetary
 (although as we describe below we fine-tuned the interface to strongly
 encourage subjects to be conscientious). The experiment is available to
-subjects as a website, and passing it involves the following steps:
-
-\begin{itemize}
-\item
-  Welcome and sign up (\cref{fig:gistr-welcome,fig:gistr-signup}),
-\item
-  Answering a preliminary questionnaire
-  (\cref{fig:gistr-questionnaire}),\footnote{An early version of the
-    experiment also included a word span test at this stage. However,
-    similarly to the age of subjects that we collect in the
-    questionnaire, this data turned out to not be relevant in the
-    analyses. The magnitude of transformations depends far more on the
-    conscientiousness of subjects, and this non-trivial test was later
-    removed during one of the frontend rewrites.}
-\item
-  Training for the main task, where subjects are asked to repeatedly
-  memorise and rewrite short utterances as accurately as possible. As
-  the instructions illustrated in \cref{fig:gistr-instructions}
+subjects as a website, and passing it involves going through a welcome and sign-up screen, answering a preliminary questionnaire, and training for the main task, where subjects are asked to repeatedly
+  memorise and rewrite short utterances as accurately as possible.
+  As the instructions illustrated in \cref{fig:gistr-instructions}
   indicate, an utterance is presented to the subject and after a short
   pause they are asked to rewrite it as remembered. The process loops
   until the subject has completed all the utterances assigned to them
   (calibrated so that completing the experiment lasts at most one hour).
   The real trials started after 3 to 5 training trials, depending on the
   overall experiment length.
-\end{itemize}
 
 This simple setup lets us quickly gather data sets of several thousand
 utterance transformations, ensuring our results will be comparable to
@@ -226,8 +209,8 @@ chains in order to allow for comparisons across chains with the same
 initial utterance. The final data thus consists of a set of
 reformulation trees, where each tree branch is a transmission chain
 started from the tree root, and continuing until it reaches a target
-depth defined for the experiment.\footnote{We therefore use the terms
-  \enquote{chain} and \enquote{branch} interchangeably in what follows.}
+depth defined for the experiment. We therefore use the terms
+  \enquote{chain} and \enquote{branch} interchangeably in what follows.
 The number of branches in a tree is also adjusted for each run of the
 experiment. Except for those who drop out before finishing the
 experiment, all subjects are exposed exactly once to each tree in random
@@ -241,63 +224,46 @@ additional subjects to fill the trees that were left incomplete. This
 leads the other, already complete trees to receive more reformulations
 than needed, making some of their branches run a little deeper than the
 target depth. All branches are cropped to the target depth for analysis.
-
-Finally, note that when exposed to a tree, subjects are always randomly
+\Cref{fig:gistr-trees}
+shows a representation of the shape of the final trees.\footnote{Note that when exposed to a tree, subjects are always randomly
 assigned to the tip of one of the branches that have not yet reached the
 target depth: subjects are thus randomly distributed across branches,
 but their depth-ordering loosely corresponds to the time of arrival on
 the tree. In particular, if a subject starts the experiment after most
-other subjects have completed it, he or she will be mostly exposed to
+other subjects have completed it, they will be mostly exposed to
 utterances deep in the branches. Due to the chained nature of the data,
-there is no economical way of countering this ordering bias.\footnote{The
-  following three approaches could be combined to counter ordering bias.
-  (1) Have each subject do a single trial, that is, use as many subjects
-  as there are reformulations in the full experiment; this is extremely
-  expensive as there is a fixed minimal price for each subject,
-  corresponding to the time needed to explore the interface, answer the
-  initial questionnaire, and train for the main task. (2) Have each
-  subject wait an adjustable amount of time between each trial, to open
-  the possibility for ordering subjects differently than their time of
-  arrival; this is also expensive, as it means paying subjects for
-  waiting most of the time they spend on the experiment. (3) Optimise
-  the order of tree presentations of each subject so as to spread
-  subjects across depths; while this approach could achieve some level
-  of spread when combined with (2), it is contingent on the starting
-  times of subjects and their synchronisation, which we do not control
-  (subjects find the experiment through Prolific Academic notifications
-  and are free to start whenever they want).} \Cref{fig:gistr-trees}
-shows a representation of the shape of the final trees.
+there is no economical way of countering this ordering bias.}
+
+%%\begin{figure}[!ht]
+%%  \centering
+%%  \subfloat[Welcome screen]{
+%%    \includegraphics[width=.48\linewidth]{images/manual/gistr-welcome.png}
+%%    \label{fig:gistr-welcome}
+%%  }
+%%  ~
+%%  \subfloat[Signup form]{
+%%    \includegraphics[width=.48\linewidth]{images/manual/gistr-signup.png}
+%%    \label{fig:gistr-signup}
+%%  }
+%%  \caption[Initial steps for a subject entering the experiment]{
+%%  \textbf{Initial steps for a subject entering the experiment.}
+%%  }
+%%  \label{fig:gistr-start}
+%%\end{figure}
+%%
+%%\begin{figure}[!ht]
+%%  \centering
+%%  \includegraphics[width=.9\linewidth]{images/manual/gistr-questionnaire.png}
+%%  \caption[Initial questionnaire]{
+%%  \textbf{Initial questionnaire.}
+%%  Subjects can additionally submit feedback on the questionnaire or any other aspect of the experiment on most screens of the website.
+%%  }
+%%  \label{fig:gistr-questionnaire}
+%%\end{figure}
 
 \begin{figure}[!ht]
   \centering
-  \subfloat[Welcome screen]{
-    \includegraphics[width=.48\linewidth]{images/manual/gistr-welcome.png}
-    \label{fig:gistr-welcome}
-  }
-  ~
-  \subfloat[Signup form]{
-    \includegraphics[width=.48\linewidth]{images/manual/gistr-signup.png}
-    \label{fig:gistr-signup}
-  }
-  \caption[Initial steps for a subject entering the experiment]{
-  \textbf{Initial steps for a subject entering the experiment.}
-  }
-  \label{fig:gistr-start}
-\end{figure}
-
-\begin{figure}[!ht]
-  \centering
-  \includegraphics[width=.9\linewidth]{images/manual/gistr-questionnaire.png}
-  \caption[Initial questionnaire]{
-  \textbf{Initial questionnaire.}
-  Subjects can additionally submit feedback on the questionnaire or any other aspect of the experiment on most screens of the website.
-  }
-  \label{fig:gistr-questionnaire}
-\end{figure}
-
-\begin{figure}[!ht]
-  \centering
-  \includegraphics[width=.75\linewidth]{images/manual/gistr-instructions-training.png}
+  \includegraphics[width=.85\linewidth]{images/manual/gistr-instructions-training.png}
   \caption[Instructions for the main task]{
   \textbf{Instructions for the main task.}
   }
@@ -306,83 +272,51 @@ shows a representation of the shape of the final trees.
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=.75\linewidth]{images/manual/gistr-trees.png}
+  \includegraphics[width=.85\linewidth]{images/manual/gistr-trees.png}
   \caption[Example reformulation trees]{
   \textbf{Example reformulation trees.}
   Two example reformulation trees generated by the setup, targeted at 7 branches of depth 10:
   the text on the left is the initial utterance for all branches of a tree, represented by a red dot in the right-hand graph; each grey dot in the graph represents an utterance produced by a subject on the basis of the preceding dot.
   Subjects create at most one reformulation in each tree, and most create exactly one per tree.
-  The fact that some subjects drop out before completing all their trees leads us to recruit new subjects to fill in the missing reformulations, which is why some branches are uneven.
+  %The fact that some subjects drop out before completing all their trees leads us to recruit new subjects to fill in the missing reformulations, which is why some branches are uneven.
   }
   \label{fig:gistr-trees}
 \end{figure}
 
 Technically, the platform is a complete Web application based on current
 technologies, with accompanying backend server to collect and distribute
-utterances.\footnote{The frontend first used the Ember.js framework
-  \autocite{ember.js_contributors_ember.js:_2017}, and was later
-  rewritten and extended using the Elm programming language
-  \autocite{czaplicki_elm:_2017}. Indeed, the assurance of no runtime
-  exceptions that Elm provides was a strong argument in favour of
-  switching, as was made clear by the trying \enquote{customer support}
-  experience of a bug hitting 40 to 50 subjects at once during
-  Experiment 1. The backend is a Python application written on top of
-  the Django REST framework \autocite{christie_django_2017}. Most of the
-  critical logic in the software is verified using automated tests, and
-  the full source code is available under a Free Software licence at
-  \url{https://github.com/interpretation-experiment/gistr-app}
-  (frontend), and
-  \url{https://github.com/interpretation-experiment/spreadr} (backend).}
+utterances.
 The experiment is available at \url{https://gistr.io} and subject
 recruitment was done using Prolific Academic, a service analogous to
-Amazon Mechanical Turk and geared towards academic research.\footnote{The
-  public url of the experiment was not advertised anywhere else, and
-  checking the subjects' Prolific Academic ID confirmed that only people
-  from that platform participated in each experiment.}
+Amazon Mechanical Turk and geared towards academic research.
 
 Using the Prolific Academic service allowed us to select among a pool of
-over \num{26000} subjects, for which we used the following criteria:
-
-\begin{itemize}
-\item
-  First language English speaker
-\item
-  At least 18 years old
-\item
-  Current country of residence and place of most time spent before
-  turning 18 must both be in the UK
-\item
-  Normal or corrected-to-normal vision
-\item
-  No diagnosed literary difficulties
-\item
-  Completed secondary school
-\item
-  Not having participated in any of the preceding experiments
-\end{itemize}
-
+over \num{26000} subjects, for which we used the following criteria: (i) first language English speaker, (ii) at least 18 years old, (iii) current country of residence and place of most time spent before
+  turning 18 must both be in the UK, (iv) normal or corrected-to-normal vision, (v) no diagnosed literary difficulties, (vi) completed secondary school and (vii) not having participated in any of the preceding experiments.
 Only the first two constraints were enforced for the first experiment,
 and the full set was used for all subsequent runs. The full filter
 provided over \num{2300} eligible subjects, from which the service
-automatically sampled the number of subjects we requested.
+automatically sampled the request number of subjects we requested.
 
 Experiment 1 was the first non-trivial launch of the platform, with an
 initial 48 subjects, 54 root utterances, and trees targeted for 6
 branches of depth 8. Subjects took an average 64 minutes to complete the
-experiment, and were rewarded with £6.5. A software bug that appeared
-and had to be fixed halfway through the experiment led the Prolific
-Academic service to recruit more subjects than was originally asked for,
-and the final number of participants was 53,\footnote{The bug appeared
-  only once a large proportion of trees had reached their target depth,
-  and then affected all the subjects nearing completion of the
-  experiment. The time taken to respond to complaints and realise that
-  the experiment had to be paused led some subjects to exceed the
-  maximum allowed time on Prolific Academic, and the service then sent
-  the experiment out to new subjects. After fixing the bug, most
-  subjects who had started the experiment accepted to finish it, leading
-  the final subject count to be higher than originally requested.}
-gathering a total 2695 utterance reformulations (above the planned
-\(54 \times 6 \times 8 = 2592\) reformulations). Manual inspection
+experiment, and were rewarded with £6.5. We gathered a total of 2695 utterance reformulations, slightly above the planned \(54 \times 6 \times 8 = 2592\) reformulations due to a minor technical issue. 
+%%A software bug that appeared
+%and had to be fixed halfway through the experiment led the Prolific
+%Academic service to recruit more subjects than was originally asked for,
+%and the final number of participants was 53,\footnote{The bug appeared
+%  only once a large proportion of trees had reached their target depth,
+%  and then affected all the subjects nearing completion of the
+%  experiment. The time taken to respond to complaints and realise that
+%  the experiment had to be paused led some subjects to exceed the
+%  maximum allowed time on Prolific Academic, and the service then sent
+%  the experiment out to new subjects. After fixing the bug, most
+%  subjects who had started the experiment accepted to finish it, leading
+%  the final subject count to be higher than originally requested.}
+%gathering a total 2695 utterance reformulations (above the planned
+%\(54 \times 6 \times 8 = 2592\) reformulations). 
+Manual inspection
 showed that large portions of the data were of poor quality, both
 linguistically and because of technical inefficiencies leading to badly
 shaped trees; the sections below provide further details on these
@@ -401,10 +335,10 @@ branches of depth 10, gathering a total 3546 utterance transformations.
 Subjects took an average 37 minutes to complete the 25 transformations,
 and were rewarded with £4.25 on average.
 
-We now detail the evaluation of data quality and the measures that were
-taken to improve it. The section after that will focus on the fit of
-task parameters and source complexity, before moving on to the analysis
-and results.
+%We now detail the evaluation of data quality and the measures that were
+%taken to improve it. The section after that will focus on the fit of
+%task parameters and source complexity, before moving on to the analysis
+%and results.
 
 \subsection{Data quality}\label{data-quality}
 
@@ -413,54 +347,51 @@ much higher than for a laboratory experiment. There is no opportunity
 for a face-to-face walk-through of the experiment or for questions, and
 subtle changes in the way the interface reacts to actions can lead
 subjects to interpret a signal where none was intended, or conversely to
-not notice an important message. The time of the subjects is not booked,
-and not having to travel to the laboratory or to talk to someone renders
-the interaction free of any commitment and generally more consumable:
-subjects can leave whenever they want, without having to feel bad about
-it (the only cost being the loss of their reward). The lack of human
-interaction with the experimenter also removes a natural incentive for
-subjects to take their time and perform according to what the
-experimenter in front of them explained. Combined together, these
-factors mean that if the interface is strenuous or ambiguous in any way,
-subjects will often pick the interpretations that make the process
-faster and either complete the experiment with minimal engagement or
-drop out. Redacting detailed textual instructions often makes matters
-worse. Instead, the interface must lead the subjects through the
+not notice an important message. 
+%%The time of the subjects is not booked,
+%%and not having to travel to the laboratory or to talk to someone renders
+%%the interaction free of any commitment and generally more consumable:
+%%subjects can leave whenever they want, without having to feel bad about
+%%it (the only cost being the loss of their reward). The lack of human
+%%interaction with the experimenter also removes a natural incentive for
+%%subjects to take their time and perform according to what the
+%%experimenter in front of them explained. Combined together, these
+%%factors mean that if the interface is strenuous or ambiguous in any way,
+%%subjects will often pick the interpretations that make the process
+%%faster and either complete the experiment with minimal engagement or
+%%drop out. Redacting detailed textual instructions often makes matters
+%%worse. Instead, t
+The interface must lead the subjects through the
 necessary explanations while remaining enjoyable, and must be
 unambiguous while still hinting towards the expected behaviour at the
 right moment, either through subtle interface reactions or through
 explicit contextual aids.
-
-\subsubsection{Manual spam-coding}\label{manual-spam-coding}
-
+%\subsubsection{Manual spam-coding}\label{manual-spam-coding}
 Failure to properly encourage and wherever possible enforce the
 experiment's expectations led to data riddled with spurious
 transformations. Manual inspection of the data collected through
 Experiment 1, for which a substantial effort on instructions and for the
 overall interface had already been made, showed that large portions of
-the data were not usable as such. We therefore spam-coded all the
-utterances from this and subsequent experiments by hand. An utterance
+the data were not usable as such. 
+
+We therefore spam-coded utterances for all experiments by hand. An utterance
 with any of the following properties was coded as spam:
-
-\begin{itemize}
-\item
+(i) 
   An ellipsis (\enquote{\ldots{}}) or other special characters (e.g.
-  \enquote{\textgreater{}}, \enquote{\textless{}}) are present
-\item
+  \enquote{\textgreater{}}, \enquote{\textless{}}) are present;
+(ii)
   The utterance is partly or completely addressed to the experimenter
-  (e.g. \enquote{Sorry, I can't remember})
-\item
-  Over half the words are misspelled
-\item
+  (e.g. \enquote{Sorry, I can't remember});
+(iii)
+  Over half the words are misspelled;
+(iv)
   The utterance has no relationship to its parent utterance (i.e.~it is
-  an entirely new utterance)
-\item
-  The utterance doesn't stand as an autonomous sentence, either because
+  an entirely new utterance);
+(v)
+  The utterance does not stand as an autonomous sentence, either because
   it is truncated or because so many words are garbled it becomes
-  nonsense
-\end{itemize}
-
-Note that the last two criteria are not sharp, and several borderline
+  nonsense.
+\footnote{Note that the last two criteria are not sharp, and several borderline
 cases had to be decided for the last one in particular. In Experiment 1
 for instance, a subtle misunderstanding allowed by the interface led
 subjects to submit some sentences truncated at exactly 10 words, without
@@ -474,28 +405,27 @@ questioned by the same criterion. For instance the simple sentence
 Such sentences do not seem tied to a misunderstanding of the task, and
 are arguably attributable to temporary distraction whose effects are
 relevant to our analysis. The benefit of the doubt was given to such
-utterances, and they were not coded as spam.
-
+utterances, and they were not coded as spam.}
 Spam in transmission chains has the additional property of invalidating
-all the utterances that are made after it, such that the total number of
-utterances to discard is more than the spam introduced by subjects.
+all the subsequent utterances, leading to discard more utterances than the ones where subjects introduced spam for the first time. 
 Coded this way, Experiment 1 showed an accumulated spam rate of 22.4\%.
-Combined with an initial technical oversight that led a small portion of
-utterances to be misplaced in the chains,\footnote{Ensuring that no two
-  subjects are creating reformulations for the same chain tip at the
-  same time, while not blocking other subjects from moving on with the
-  experiment, is a non-trivial technical hurdle. Not solving it leads
-  the chains to have \enquote{forks}, that is, utterances with several
-  children (possibly extending to sub-branches) instead of a single one.
-  One of the children must then be chosen to form the main chain, and
-  the others discarded. Solutions to the problem are difficult to test
-  in practice, as they involve simulating dozens of subjects
-  concurrently sending utterances to the platform. The approach adopted
-  in Experiment 1 relied on client-side randomisation, but proved
-  insufficient: 3.5\% of the utterances posted by subjects were forks
-  deep in the chains. Experiments 2 and 3 relied on a mix of client-side
-  randomisation and server-side locking to solve the problem.} a total
-of 25.9\% of the utterances generated by Experiment 1 were discarded.
+Combined with an initial technical oversight, where participants could concurrently participate in the same reformulation on the same branch and which led a small portion of
+utterances to be misplaced in the chains,
+%%\footnote{Ensuring that no two
+%%  subjects are creating reformulations for the same chain tip at the
+%%  same time, while not blocking other subjects from moving on with the
+%%  experiment, is a non-trivial technical hurdle. Not solving it leads
+%%  the chains to have \enquote{forks}, that is, utterances with several
+%%  children (possibly extending to sub-branches) instead of a single one.
+%%  One of the children must then be chosen to form the main chain, and
+%%  the others discarded. Solutions to the problem are difficult to test
+%%  in practice, as they involve simulating dozens of subjects
+%%  concurrently sending utterances to the platform. The approach adopted
+%%  in Experiment 1 relied on client-side randomisation, but proved
+%%  insufficient: 3.5\% of the utterances posted by subjects were forks
+%%  deep in the chains. Experiments 2 and 3 relied on a mix of client-side
+%%  randomisation and server-side locking to solve the problem.} 
+a total of 25.9\% of the utterances generated by Experiment 1 were discarded.
 The number of valid transformations garnered by this experiment thus
 went from 2695 to 1980. Apart from reducing the size of the usable data,
 spam also leads to uneven chains across trees, a heterogeneity that
@@ -505,11 +435,7 @@ an option.
 The main tool we used to reduce the level of spam is the user interface.
 As explained above, minor changes in the way the interface reacts to the
 subjects' actions combined with relevant context-dependent information
-can have a comparatively large impact on the spam rate.
-
-\subsubsection{User interface
-improvements}\label{user-interface-improvements}
-
+can have a comparatively large impact on spam.
 The situation is similar to that of surveys, where much effort is put
 into mitigating the risk of users engaging the minimum possible effort
 to complete the survey \autocite{krosnick_threat_2000}. Successfully
@@ -518,90 +444,91 @@ of the data collected: what the interface might lead subjects to see as
 acceptable can easily be spam for the experimenter, and both
 perspectives must be aligned as much as possible. Interface design
 problems appeared repeatedly throughout the development of the platform
-and the pilots. The most important points can be summed up as follows:
-
-\begin{itemize}
-\item
-  \emph{Preventing digital copy-paste}: an obvious workaround to the
-  task that most subjects will try in the first few trials.
-\item
-  \emph{Constraining the input}: a well-known behaviour in transmission
-  chains of linguistic content is the rapid reduction in size of the
-  content that is transmitted
-  \autocites{maxwell_remembering_1936}{bangerter_transformation_2000}{mesoudi_hierarchical_2004}.
-  In order to encourage subjects to rely on what they remember, and
-  prevent them from quickly reaching empty sentences, an early version
-  of the experiment would disable the \enquote{send} button if the
-  subject's input was shorter than 10 words (Experiments 2 and 3 later
-  relaxed this constraint to 5 words). However, some subjects
-  interpreted the button becoming active after 10 words as a signal that
-  their input was ready to be sent as is, even if it was only a partial
-  sentence. This ambiguity, corrected in later versions, is responsible
-  for a large part of the spam found in Experiment 1.
-\item
-  \emph{Improving input quality}: Experiment 1 and subsequent pilots
-  showed the need for strong incentives to write well-edited meaningful
-  text. Indeed when pressed for time, some subjects will tend to write
-  misspelled, poorly punctuated, or even meaningless utterances, which
-  invalidate all the sentences that follow in the branch. Countering
-  this tendency involved several changes to Experiments 2 and 3:
-  emphasis was added to the fact that what is produced by one subject is
-  later sent to other subjects, encouraging a more conscientious
-  behaviour; a bonus was associated with high-fidelity trials, and the
-  top 5 subjects with lowest transformation rates (as defined below in
-  the analysis) received increased payment; most importantly, input from
-  the subjects was also checked for repeated or inadequate punctuation,
-  and for correct spelling against a combined British and American
-  English dictionary. The interface asked subjects to correct any input
-  that failed those tests, and presented them with a short explanation
-  that emphasised the faulty behaviour and recalled the chain structure
-  of the experiment. Inspecting the platform logs showed that this last
-  measure led subjects to often correct their utterances, a fact that
-  was also confirmed by the increased average writing time.
-\item
-  \emph{Relaxing the time pressure}: the interface of Experiment 1 made
-  several mistakes that worsened the inherent pressure on subjects to
-  complete the study as fast as possible (indeed, payment on Prolific
-  Academic is per experiment, not per time spent -- which, conversely,
-  would encourage subjects to be very slow). First, subjects could
-  terminate the reading time of an utterance at will. While this
-  provided a measure of the effective reading time used by subjects, it
-  also opened the possibility of speeding through the trials. Indeed
-  over a third of the transformations of Experiment 1 were done by using
-  less than half the allotted reading time. This pressure was increased
-  by the presence of a \enquote{remaining time} clock in the reading and
-  waiting phases, similar to the green clock shown on
-  \cref{fig:gistr-instructions} for the writing phase. By removing
-  superfluous clocks, keeping the reading time fixed, and proposing a
-  break after each utterance, Experiments 2 and 3 relaxed the time
-  pressure on the subjects and improved the final data quality.
-\item
-  \emph{Feedback channel}: survey design handbooks regularly insist on
-  the importance of providing a channel for subjects to comment on the
-  questions they were asked, and encourage the use of debriefing
-  sessions to deepen that understanding
-  \autocite{de_leeuw_international_2008}. Such feedback channels have
-  also become a norm in online services, and we therefore chose to give
-  the possibility for subjects to comment on most screens of the
-  experiment (excluding the read-write screens) through a side-ribbon
-  which, when clicked, would overlay a comment box (see
-  \cref{fig:gistr-feedback}). It seems, however, that a more interactive
-  option would be more effective, as only a handful of subjects entered
-  comments over the course of Experiments 2 and 3.
-\item
-  \emph{Instructions}: finally, a continuous effort was invested into
-  fine-tuning the exact phrasing of instructions, and making the
-  interface for instructions palatable using a now common pattern: for
-  the instructions pictured in \cref{fig:gistr-instructions} for
-  instance, different elements or images are successively foregrounded
-  and highlighted, and a tooltip with short explanations appears next to
-  the active element.\footnote{The pattern was popularised by software
-    libraries such as Intro.js (\url{http://introjs.com/}).} Here too,
-  Experiment 1 and subsequent pilots allowed users to skip these
-  instructions, leading a portion of the subjects to effectively never
-  read them. Experiments 2 and 3 made navigating the complete list of
-  instructions mandatory in order to start the trials.
-\end{itemize}
+and the pilots. The most important points can be summed up as follows: 
+(i) 
+  \emph{Preventing digital copy-paste} (an obvious workaround)
+  %: an obvious workaround to the
+  %task that most subjects will try in the first few trials.
+(ii)
+  \emph{Avoiding signals that may be interpreted as a success} (such as avoiding to disable the ``send'' button below a certain number of words, which led some participants to validate their input as they reached the threshold);
+%  : a well-known behaviour in transmission
+%  chains of linguistic content is the rapid reduction in size of the
+%  content that is transmitted
+%  \autocites{maxwell_remembering_1936}{bangerter_transformation_2000}{mesoudi_hierarchical_2004}.
+%  In order to encourage subjects to rely on what they remember, and
+%  prevent them from quickly reaching empty sentences, an early version
+%  of the experiment would disable the \enquote{send} button if the
+%  subject's input was shorter than 10 words (Experiments 2 and 3 later
+%  relaxed this constraint to 5 words). However, some subjects
+%  interpreted the button becoming active after 10 words as a signal that
+%  their input was ready to be sent as is, even if it was only a partial
+%  sentence. This ambiguity, corrected in later versions, is responsible
+%  for a large part of the spam found in Experiment 1.
+(iii)
+  \emph{Improving input quality} (including emphasizing the importance of transmitting correct sentences to the next participants); 
+%  : Experiment 1 and subsequent pilots
+%  showed the need for strong incentives to write well-edited meaningful
+%  text. Indeed when pressed for time, some subjects will tend to write
+%  misspelled, poorly punctuated, or even meaningless utterances, which
+%  invalidate all the sentences that follow in the branch. Countering
+%  this tendency involved several changes to Experiments 2 and 3:
+%  emphasis was added to the fact that what is produced by one subject is
+%  later sent to other subjects, encouraging a more conscientious
+%  behaviour; a bonus was associated with high-fidelity trials, and the
+%  top 5 subjects with lowest transformation rates (as defined below in
+%  the analysis) received increased payment; most importantly, input from
+%  the subjects was also checked for repeated or inadequate punctuation,
+%  and for correct spelling against a combined British and American
+%  English dictionary. The interface asked subjects to correct any input
+%  that failed those tests, and presented them with a short explanation
+%  that emphasised the faulty behaviour and recalled the chain structure
+%  of the experiment. Inspecting the platform logs showed that this last
+%  measure led subjects to often correct their utterances, a fact that
+%  was also confirmed by the increased average writing time.
+(iv)
+  \emph{Relaxing the time pressure} (and avoiding rushed behaviors, by enforcing a minimal reading time);
+%%  : the interface of Experiment 1 made
+%%  several mistakes that worsened the inherent pressure on subjects to
+%%  complete the study as fast as possible (indeed, payment on Prolific
+%%  Academic is per experiment, not per time spent -- which, conversely,
+%%  would encourage subjects to be very slow). First, subjects could
+%%  terminate the reading time of an utterance at will. While this
+%%  provided a measure of the effective reading time used by subjects, it
+%%  also opened the possibility of speeding through the trials. Indeed
+%%  over a third of the transformations of Experiment 1 were done by using
+%%  less than half the allotted reading time. This pressure was increased
+%%  by the presence of a \enquote{remaining time} clock in the reading and
+%%  waiting phases, similar to the green clock shown on
+%%  \cref{fig:gistr-instructions} for the writing phase. By removing
+%%  superfluous clocks, keeping the reading time fixed, and proposing a
+%%  break after each utterance, Experiments 2 and 3 relaxed the time
+%%  pressure on the subjects and improved the final data quality.
+(v) 
+  \emph{Feedback channel} (for subjects to comment on the
+  questions they were asked); and
+%%  , and encourage the use of debriefing
+%%  sessions to deepen that understanding
+%%  \autocite{de_leeuw_international_2008}. Such feedback channels have
+%%  also become a norm in online services, and we therefore chose to give
+%%  the possibility for subjects to comment on most screens of the
+%%  experiment (excluding the read-write screens) through a side-ribbon
+%%  which, when clicked, would overlay a comment box (see
+%%  \cref{fig:gistr-feedback}). It seems, however, that a more interactive
+%%  option would be more effective, as only a handful of subjects entered
+%%  comments over the course of Experiments 2 and 3.
+(vi)  \emph{Instructions} (fine-tuning the exact phrasing of instructions and making it more ergonomic).
+%% of the   making the
+%%  interface for instructions palatable using a now common pattern: for
+%%  the instructions pictured in \cref{fig:gistr-instructions} for
+%%  instance, different elements or images are successively foregrounded
+%%  and highlighted, and a tooltip with short explanations appears next to
+%%  the active element.\footnote{The pattern was popularised by software
+%%    libraries such as Intro.js (\url{http://introjs.com/}).} Here too,
+%%  Experiment 1 and subsequent pilots allowed users to skip these
+%%  instructions, leading a portion of the subjects to effectively never
+%%  read them. Experiments 2 and 3 made navigating the complete list of
+%%  instructions mandatory in order to start the trials.
+%%\end{itemize}
 
 These changes reduced the spam rate drastically. On the same criteria as
 Experiment 1, Experiment 2 showed an accumulated spam rate of .8\%,
@@ -611,17 +538,17 @@ Experiment 3 showed an accumulated spam rate of 1.0\%, and with
 misplaced utterances had to discard a total 1.1\% of the data (leading
 to a final 3506 valid transformations).
 
-\begin{figure}[!ht]
-  \centering
-  \includegraphics[width=.75\linewidth]{images/manual/gistr-feedback.png}
-  \caption[Overlay feedback box]{
-  \textbf{Overlay feedback box.}
-  Opened in the instructions screen from Fig.~\ref{fig:gistr-instructions}.
-  The box is available in most screens of Experiments 2 and 3.
-  }
-  \label{fig:gistr-feedback}
-\end{figure}
-
+%\begin{figure}[!ht]
+%  \centering
+%  \includegraphics[width=.75\linewidth]{images/manual/gistr-feedback.png}
+%  \caption[Overlay feedback box]{
+%  \textbf{Overlay feedback box.}
+%  Opened in the instructions screen from Fig.~\ref{fig:gistr-instructions}.
+%  The box is available in most screens of Experiments 2 and 3.
+%  }
+%  \label{fig:gistr-feedback}
+%\end{figure}
+%
 \subsection{Task difficulty and source complexity
 fit}\label{task-difficulty-and-source-complexity-fit}
 
@@ -796,3 +723,87 @@ utterances extracted from \textcite{mesoudi_bias_2006} (average number
 of words \num{60.3}) and 3 utterances extracted from the story used by
 \textcite{maxwell_remembering_1936} (average number of words
 \num{40.7}), with a reading factor of 1.
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%    %%%%%%%%    %%%%%%%%    GARBAGE    %%%%%%%%    %%%%%%%%    %%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\footnote{The
+  following three approaches could be combined to counter ordering bias.
+  (1) Have each subject do a single trial, that is, use as many subjects
+  as there are reformulations in the full experiment; this is extremely
+  expensive as there is a fixed minimal price for each subject,
+  corresponding to the time needed to explore the interface, answer the
+  initial questionnaire, and train for the main task. (2) Have each
+  subject wait an adjustable amount of time between each trial, to open
+  the possibility for ordering subjects differently than their time of
+  arrival; this is also expensive, as it means paying subjects for
+  waiting most of the time they spend on the experiment. (3) Optimise
+  the order of tree presentations of each subject so as to spread
+  subjects across depths; while this approach could achieve some level
+  of spread when combined with (2), it is contingent on the starting
+  times of subjects and their synchronisation, which we do not control
+  (subjects find the experiment through Prolific Academic notifications
+  and are free to start whenever they want).} 
+  
+  
+  \footnote{The frontend first used the Ember.js framework
+  \autocite{ember.js_contributors_ember.js:_2017}, and was later
+  rewritten and extended using the Elm programming language
+  \autocite{czaplicki_elm:_2017}. Indeed, the assurance of no runtime
+  exceptions that Elm provides was a strong argument in favour of
+  switching, as was made clear by the trying \enquote{customer support}
+  experience of a bug hitting 40 to 50 subjects at once during
+  Experiment 1. The backend is a Python application written on top of
+  the Django REST framework \autocite{christie_django_2017}. Most of the
+  critical logic in the software is verified using automated tests, and
+  the full source code is available under a Free Software licence at
+  \url{https://github.com/interpretation-experiment/gistr-app}
+  (frontend), and
+  \url{https://github.com/interpretation-experiment/spreadr} (backend).}
+
+\footnote{The
+  public url of the experiment was not advertised anywhere else, and
+  checking the subjects' Prolific Academic ID confirmed that only people
+  from that platform participated in each experiment.}
