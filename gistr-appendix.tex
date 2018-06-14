@@ -1,0 +1,49 @@
+\appendix
+\section{Varia}
+
+\begin{algorithm}
+\caption{An implementation of the deep alignment extension for detecting exchanges in NW alignments.
+Note that this implementation is less efficient but presentationally clearer than the implementation we made.
+}
+\label{alg:deep-alignment}
+\begin{algorithmic}
+\Function{shallowalign}{$u$, $u'$}
+  \State (Implemented by Biopython)
+  \State \Return List of optimal shallow alignments of $u$ and $u'$
+\EndFunction \\
+
+\Function{mappings}{$a_{shallow}$}
+  \State $\mathcal{D}\gets \{d | d\text{ deletion block in }a_{shallow}\}$
+  \State $\mathcal{I}\gets \{i | i\text{ deletion block in }a_{shallow}\}$
+  \State \Return $\mathcal{D}^{P(\mathcal{I})}$ \Comment{$P(\Omega)$ is the power set of $\Omega$}
+\EndFunction \\
+
+\Function{scoremapping}{$a_{shallow}$, $D_M$}
+  \State $s\gets 0$
+  \For{$((u_{e,-,} u_{e,+}), D_e)$ in $D_M$}
+    \State $s\gets s + \theta_{exchange}$
+    \State $s\gets s - \Call{score}{\text{deletion of }u_{e,-}} - \Call{score}{\text{insertion of }u_{e,+}}$
+    \State $s\gets s + \max\{\chi_{deep}(a_{deep}) | a_{deep} \in D_e\}$
+  \EndFor
+  \State \Return $s$
+\EndFunction \\
+
+\Function{deepalign}{$u$, $u'$}
+  \State $D\gets []$ \Comment{$D$ is the list of deep alignments trees we have explored}
+  \For{$a_{shallow}$ shallow alignment in \Call{shallowalign}{$u$, $u'$}}
+    \If{$a_{shallow}$ has no gaps or has only gaps}
+      \State $D\gets (a_{shallow}, [], \chi_{shallow}(a_{shallow}))$
+    \Else
+      \For{$M$ mapping in \Call{mappings}{$a_{shallow}$}}
+        \State $D_M\gets []$
+        \For{$(u_{e,-}, u_{e,+})$ exchange in $M$}
+          \State $D_M\gets D_M + ((u_{e,-}, u_{e,+}), \Call{deepalign}{u_{e,-}, u_{e,+}})$
+        \EndFor
+        \State $D\gets D + (a_{shallow}, D_M, \chi_{shallow}(a_{shallow}) + \Call{scoremapping}{a_{shallow}, D_M})$
+      \EndFor
+    \EndIf
+  \EndFor
+  \State \Return Recursively pruned version of $D$ with only maximally scoring deep alignments
+\EndFunction
+\end{algorithmic}
+\end{algorithm}

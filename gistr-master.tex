@@ -18,11 +18,10 @@
 \usepackage[
     style=authoryear-comp,
     uniquename=false,
-    urldate=edtf,
     url=false,
     maxbibnames=20,
     giveninits=true,
-    isbn=false]{biblatex}
+    isbn=false, backend=biber]{biblatex}
 \addbibresource{gistr.bib}
 
 % Mathematics, Code and tables
@@ -105,6 +104,8 @@
 }
 \authornote{\emph{Keywords:} \rk{todo}\\\emph{Corresponding author:} \rk{todo}}
 
+\setcounter{secnumdepth}{3}
+
 \begin{document}
 \maketitle
 
@@ -127,6 +128,9 @@
 \subsection*{Software colophon}
 \rk{todo}
 
+
 \printbibliography
+
+\input{gistr-appendix}
 
 \end{document}

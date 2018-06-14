@@ -610,52 +610,7 @@ the size of the deep alignment tree can grow very fast:
   there on recursively.
 \end{itemize}
 
-\begin{algorithm}
-\caption{An implementation of the deep alignment extension for detecting exchanges in NW alignments.
-Note that this implementation is less efficient but presentationally clearer than the implementation we made.
-}
-\label{alg:deep-alignment}
-\begin{algorithmic}
-\Function{shallowalign}{$u$, $u'$}
-  \State (Implemented by Biopython)
-  \State \Return List of optimal shallow alignments of $u$ and $u'$
-\EndFunction \\
 
-\Function{mappings}{$a_{shallow}$}
-  \State $\mathcal{D}\gets \{d | d\text{ deletion block in }a_{shallow}\}$
-  \State $\mathcal{I}\gets \{i | i\text{ deletion block in }a_{shallow}\}$
-  \State \Return $\mathcal{D}^{P(\mathcal{I})}$ \Comment{$P(\Omega)$ is the power set of $\Omega$}
-\EndFunction \\
-
-\Function{scoremapping}{$a_{shallow}$, $D_M$}
-  \State $s\gets 0$
-  \For{$((u_{e,-,} u_{e,+}), D_e)$ in $D_M$}
-    \State $s\gets s + \theta_{exchange}$
-    \State $s\gets s - \Call{score}{\text{deletion of }u_{e,-}} - \Call{score}{\text{insertion of }u_{e,+}}$
-    \State $s\gets s + \max\{\chi_{deep}(a_{deep}) | a_{deep} \in D_e\}$
-  \EndFor
-  \State \Return $s$
-\EndFunction \\
-
-\Function{deepalign}{$u$, $u'$}
-  \State $D\gets []$ \Comment{$D$ is the list of deep alignments trees we have explored}
-  \For{$a_{shallow}$ shallow alignment in \Call{shallowalign}{$u$, $u'$}}
-    \If{$a_{shallow}$ has no gaps or has only gaps}
-      \State $D\gets (a_{shallow}, [], \chi_{shallow}(a_{shallow}))$
-    \Else
-      \For{$M$ mapping in \Call{mappings}{$a_{shallow}$}}
-        \State $D_M\gets []$
-        \For{$(u_{e,-}, u_{e,+})$ exchange in $M$}
-          \State $D_M\gets D_M + ((u_{e,-}, u_{e,+}), \Call{deepalign}{u_{e,-}, u_{e,+}})$
-        \EndFor
-        \State $D\gets D + (a_{shallow}, D_M, \chi_{shallow}(a_{shallow}) + \Call{scoremapping}{a_{shallow}, D_M})$
-      \EndFor
-    \EndIf
-  \EndFor
-  \State \Return Recursively pruned version of $D$ with only maximally scoring deep alignments
-\EndFunction
-\end{algorithmic}
-\end{algorithm}
 
 Also, our implementation of the exploration of that tree is mostly brute
 force, and does not try to be smart in predicting which branches are
@@ -843,7 +798,7 @@ parameters obtained with this approach are \(\theta_{mismatch} = -.89\),
 \(\theta_{exchange}\) was then set to \(-.5\) after manual trial and
 error.
 
-\begin{figure}[!ht]
+\begin{figure*}[!ht]
   \centering
   \subfloat[Before manual alignment]{
     \includegraphics[width=\linewidth]{images/manual/gistr-goldcli-before.png}
@@ -857,7 +812,7 @@ error.
   The user moves their cursor (underline below "handed" and "Cardiff") along the word sequences to insert or remove gaps and align the two utterances by hand.
   }
   \label{fig:gistr-goldcli}
-\end{figure}
+\end{figure*}
 
 Finally, we manually evaluated the overall quality of these parameters
 by hand-coding the number of errors in a random set of 100 non-trivial
@@ -971,7 +926,7 @@ whose root is the following utterance:\footnote{This is tree \#4, which
   « At Dover, the finale of the bailiffs' convention. Their duties, said a speaker, are "delicate, dangerous, and insufficiently compensated." »
 \end{nquote}
 
-\begin{figure}[p]
+\begin{figure*}[h]
   \centering
   \includegraphics[width=\linewidth]{images/computed/exp_3/lineage-tree-4.png}
   \caption[Example lineages for all the branches of tree \#4 from Experiment 3]{
@@ -986,7 +941,7 @@ whose root is the following utterance:\footnote{This is tree \#4, which
   Dots inside each light band are spread out on the horizontal axis so as make them easier to distinguish visually, but the horizontal position of a dot inside its band has no further meaning.
   }
   \label{fig:gistr-lineage-tree}
-\end{figure}
+\end{figure*}
 
 At first glance the plots reflect the rapid shortening of utterances,
 and the fact that transformations are less important on shorter
@@ -1034,7 +989,7 @@ representing the transformation. We picture this correspondence between
 the transformation diagram in the utterance dimension and the compressed
 form of consensus alignments in \cref{fig:gistr-dimensions-utterance}.
 
-\begin{figure}[p]
+\begin{figure*}[h]
   \centering
   \subfloat[\textbf{Branch dimension.}
   This level looks at whether or not an utterance is transformed, without going into the detail of changes (hence the greyed out dots and lines).
@@ -1070,7 +1025,7 @@ form of consensus alignments in \cref{fig:gistr-dimensions-utterance}.
   This example is built on branch \#49 from Fig.~\ref{fig:gistr-lineage-tree}.
   }
   \label{fig:gistr-dimensions}
-\end{figure}
+\end{figure*}
 
 This subtlety in the encoding of transformations is not a coincidence.
 It relates to the fact that, in spite of the one-dimensional nature of
