@@ -399,11 +399,10 @@ transform \(s\) into \(s'\) (and vice-versa).
 More precisely, let us note \(s = (s_1, ..., s_n)\) and
 \(s' = (s'_1, ..., s'_{n'})\) the items in both sequences, with \(n\)
 and \(n'\) the lengths of the sequences. The NW algorithm returns pairs
-of sequences \(a\) and \(a'\) of lengths \(m \geq \max(n, n')\), made of
+of sequences \(a = (a_1, ..., a_m)\) and \(a' = (a'_1, ..., a'_m)\) of lengths \(m \geq \max(n, n')\), made of
 the items from \(s\) and \(s'\) (respectively), in the same order, but
-interspersed with a \enquote{gap item}. We note the gap item \(g\), and
-the alignment sequences \(a = (a_1, ..., a_m)\) and
-\(a' = (a'_1, ..., a'_m)\). Each tuple \((a_i, a'_i)\) then represents
+interspersed with what is called a \enquote{gap item}, denoted as \(g\). 
+Each couple \((a_i, a'_i)\) then represents
 the pairing of an item from \(s\) with an item from \(s'\) (either match
 or mismatch), or with a gap if \(a'_i = g\) (and vice versa if
 \(a_i = g\)). Considered as a transformation from \(s\) to \(s'\), gap
@@ -826,15 +825,8 @@ used in the example alignments discussed in the previous sections.
 
 \subsection{Transformation model}\label{transformation-model}
 
-The alignment procedure we just presented provides a list of deep
-alignment trees for each transformation in the data set. At this point
-we have showed that such deep alignments reliably encode the details of
-a transformation broken down into smaller operations, thus completing
-the first step of our modelling approach. We now proceed to the next
-step: first, create an accurate visualisation of the details of
-transformations captured by the alignments, then derive a transformation
-model based on that visualisation. The step after that will then refine
-the model and quantify the behaviours we can measure with it.
+This alignment procedure yields deep alignment trees which reliably encode the details of
+each transformation, broken down into smaller operations. We may now propose a transformation model derived from an accurate representation of the details of transformations as captured by the alignments.
 
 \subsubsection{Consensus filiations}\label{consensus-filiations}
 
