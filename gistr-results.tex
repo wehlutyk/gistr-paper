@@ -62,16 +62,15 @@ Experiment 2 are in an oral style, with a higher proportion of stopwords
 than in Experiments 1 and 3 (stopwords are always high-frequency words,
 and make up 67\% of the root utterances of Experiment 2, versus 58\% in
 Experiment 1 and 48\% in Experiment 3). The steeper slopes in
-Experiments 1 and 3 compared to Experiment 2 are thus tied to the higher
+Experiments 1 and 3 compared to Experiment 2 are thus likely tied to the higher
 word counts and lower proportions of stopwords in their root utterances.
 
 Next, we eliminate stopwords from the utterances and focus on the
-reduction in number of content words (notice however that stopword
+reduction in number of content words.\footnote{Notice however that stopword
 recognition is less reliable in Experiment 1 than in Experiments 2 and
-3, because of spelling mistakes). For a given utterance \(u\), the list
+3, because of spelling mistakes.} For a given utterance \(u\), the list
 of its content words is noted \(c(u)\), and the number of content words
-is therefore \(|c(u)|_w\), where \(|\cdot|_w\) is extended to provide
-the length of a list of words (aside from counting words in a string).
+is denoted as \(|c(u)|_w\).%, where \(|\cdot|_w\) is extended to provide the length of a list of words (aside from counting words in a string).
 \Cref{fig:gistr-content-lengths} plots the content word counts for the
 same utterances as those in \cref{fig:gistr-token-lengths} (in
 particular, insets show the same utterances in both figures), and shows
@@ -1217,7 +1216,7 @@ therefore straightforward. The values plotted in
 chunk-level processes are bursty; rather, they are slightly more regular
 than a Poisson process would be.
 
-\begin{figure}[!ht]
+\begin{figure*}[!ht]
   \centering
   \subfloat[Burstiness of word-level operations]{
     \includegraphics[width=.55\linewidth]{images/computed/exp_3/burstiness-words.png}
@@ -1236,7 +1235,7 @@ than a Poisson process would be.
   Grey lines are the 95\% confidence intervals based on Student's $t$-distribution, considering each tree as an independent burstiness measure.
   }
   \label{fig:gistr-utterance-burstiness}
-\end{figure}
+\end{figure*}
 
 Although this behaviour is consistent with our intuition of the way an
 utterance is reformulated, there is a question as to whether the
