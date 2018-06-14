@@ -31,13 +31,7 @@ observed in the data.
 We begin the analysis of our three data sets by examining the evolution
 of aggregate measures as a function of depth in the trees. Here and in
 what follows, the analyses are made on the data cleaned of spam, and
-chains truncated at their target depth: the data from Experiment 1 is
-truncated at depth 8, Experiment 2 at depth 7, and Experiment 3 at depth
-10, and all plots are aligned to the same depth axis to facilitate
-comparisons. The goal of this section is to give an overview of the
-shape of the data and highlight a few important trends to keep in mind
-in the rest of the analysis. The model we develop further down will then
-give a more precise view of the mechanisms underlying these trends.
+chains truncated at their target depth (depths 8, 7 and 10 for Experiments 1, 2 and 3 respectively). We first provide an overview on the data and a few important surface trends related to the global conservation and loss of content, before proposing a more detailed model at the level of transformations.
 
 \subsubsection{Utterance length}\label{utterance-length}
 
@@ -926,7 +920,7 @@ whose root is the following utterance:\footnote{This is tree \#4, which
   « At Dover, the finale of the bailiffs' convention. Their duties, said a speaker, are "delicate, dangerous, and insufficiently compensated." »
 \end{nquote}
 
-\begin{figure*}[h]
+\begin{figure*}[!h]
   \centering
   \includegraphics[width=\linewidth]{images/computed/exp_3/lineage-tree-4.png}
   \caption[Example lineages for all the branches of tree \#4 from Experiment 3]{
@@ -989,7 +983,7 @@ representing the transformation. We picture this correspondence between
 the transformation diagram in the utterance dimension and the compressed
 form of consensus alignments in \cref{fig:gistr-dimensions-utterance}.
 
-\begin{figure*}[h]
+\begin{figure*}[!h]
   \centering
   \subfloat[\textbf{Branch dimension.}
   This level looks at whether or not an utterance is transformed, without going into the detail of changes (hence the greyed out dots and lines).
@@ -1936,7 +1930,7 @@ turn to the discussion of this phenomenon.
 
 \begin{figure}[p]
   \centering
-  \includegraphics[height=.75\textheight]{images/manual/gistr-summary.pdf}
+  \includegraphics[width=\linewidth]{images/manual/gistr-summary.pdf}
   \caption[Summary of results]{
   \textbf{Summary of results.}
   The upper part of the figure pictures the dependencies observed in the detail of transformations.
