@@ -776,7 +776,9 @@ training set between 100 and 200 alignments is enough to reduce the
 final error below one word per transformation.
 
 We thus hand-coded 200 alignments of non-trivial transformations, using
-a simple console interface illustrated in \cref{fig:gistr-goldcli}. The
+a simple console interface illustrated in \cref{fig:gistr-goldcli} 
+\rk{removed. could go into the appendix}. 
+The
 manual alignments were used as a parameter training set, on which brute
 forcing the best \(\bm{\theta} \in [-1, 0]^3\) with discretisation step
 up to .025 achieved a training fit of 240 (i.e., 1.2 errors per
@@ -790,21 +792,21 @@ parameters obtained with this approach are \(\theta_{mismatch} = -.89\),
 \(\theta_{exchange}\) was then set to \(-.5\) after manual trial and
 error.
 
-\begin{figure*}[!ht]
-  \centering
-  \subfloat[Before manual alignment]{
-    \includegraphics[width=\linewidth]{images/manual/gistr-goldcli-before.png}
-  }
-
-  \subfloat[After manual alignment]{
-    \includegraphics[width=\linewidth]{images/manual/gistr-goldcli-after.png}
-  }
-  \caption[Console interface for manual transformation alignment]{
-  \textbf{Console interface for manual transformation alignment.}
-  The user moves their cursor (underline below "handed" and "Cardiff") along the word sequences to insert or remove gaps and align the two utterances by hand.
-  }
-  \label{fig:gistr-goldcli}
-\end{figure*}
+%\begin{figure*}[!ht]
+%  \centering
+%  \subfloat[Before manual alignment]{
+%    \includegraphics[width=\linewidth]{images/manual/gistr-goldcli-before.png}
+%  }
+%
+%  \subfloat[After manual alignment]{
+%    \includegraphics[width=\linewidth]{images/manual/gistr-goldcli-after.png}
+%  }
+%  \caption[Console interface for manual transformation alignment]{
+%  \textbf{Console interface for manual transformation alignment.}
+%  The user moves their cursor (underline below "handed" and "Cardiff") along the word sequences to insert or remove gaps and align the two utterances by hand.
+%  }
+%  \label{fig:gistr-goldcli}
+%\end{figure*}
 
 Finally, we manually evaluated the overall quality of these parameters
 by hand-coding the number of errors in a random set of 100 non-trivial
@@ -826,7 +828,7 @@ used in the example alignments discussed in the previous sections.
 \subsection{Transformation model}\label{transformation-model}
 
 This alignment procedure yields deep alignment trees which reliably encode the details of
-each transformation, broken down into smaller operations. We may now propose a transformation model derived from an accurate representation of the details of transformations as captured by the alignments.
+each transformation, broken down into smaller operations. This enables us to now propose a transformation model based on the details captured by the alignments.
 
 \subsubsection{Consensus filiations}\label{consensus-filiations}
 
@@ -840,6 +842,7 @@ in one deep alignment and not in others, and so on and so forth. A
 method to resolve conflicts across multiple deep alignments is therefore
 required.
 
+\rk{We might need an example of such a deep alignment tree here, it remains too abstract I think.  I guess we can however get rid of Fig. 6 with the console interface.  Finally, since transformation examples generally span two columns, it might be useful to gather them in a full-width area (figure ?).}
 We adopt the following procedure to construct the consensus alignment
 from the list of deep alignment trees of a transformation
 \(u \rightarrow u'\). First, flatten each deep alignment tree into a
@@ -860,8 +863,7 @@ or through replacement in at least half of all the deep alignments. if
 it is, then select the child word in \(u'\) which appears in most deep
 alignments (i.e.~the majority child); if \(w\) is not conserved in at
 least half of the deep alignments, then consider it deleted. Any word in
-\(u'\) that has no assigned parent word is then considered an insertion.
-
+\(u'\) that has no assigned parent word is then considered an insertion.\footnote{\rk{Dunno if it's easy to compress and possibly discard parts of what I suggest should now be a footnote. I let you decide.}
 A few details are worth mentioning here. First, a word that is stable in
 exactly half the deep alignments and deleted in the other half is still
 considered stable, such that the procedure sometimes maintains one or
@@ -879,8 +881,8 @@ procedure is consistent in both directions: the consensus alignment for
 small number of cases create new single-word exchanges, as two words are
 assigned not the same child but different children at exchanged
 positions; manual inspection of these cases showed that such exchanges
-are consistent with the transformation they represent. In practice, only
-53 of the 3461 transformations in Experiment 3 have more than one deep
+are consistent with the transformation they represent.}
+In practice, only 53 of the 3461 transformations in Experiment 3 have more than one deep
 alignment, 46 of which have 2 (the other seven having 3 to 6 deep
 alignments), such that any change here has virtually no impact on the
 results.
@@ -895,6 +897,7 @@ Continuing down the branch, \(w'\) can also be linked to its child
 specific word along the branch. Constructing consensus alignments for
 each transformation thus allows us to follow the ancestry and descent of
 individual words through parent and child transformations in a branch.
+\rk{Ici aussi, je trouve le paragraphe difficile à comprendre -- et son but notamment. Le 4.3.1 reste très compact et abstrait ! La suite va bien mieux. Je compacterais volontiers mais je ne suis pas sûr moi-même de mon interprétation.}
 
 \subsubsection{Branch and utterance
 dimensions}\label{branch-and-utterance-dimensions}
@@ -931,12 +934,13 @@ whose root is the following utterance:\footnote{This is tree \#4, which
 At first glance the plots reflect the rapid shortening of utterances,
 and the fact that transformations are less important on shorter
 utterances deeper in the branches. The figure also indicates that word
-replacements, studied in the previous chapter with data from blogspace,
+replacements, the only process studied by \textcite{lerique-2018-semantic-drift},
 are quite speckled: they are less frequent than deletions and
 insertions, and affect smaller portions of the utterances when they
-appear. As replacements were the only process that could be extracted
-from the blogspace data set, suspecting this caveat was one of the
-motivations for our current experimental approach.
+appear. 
+%As replacements were the only process that could be extracted
+%from the blogspace data set, suspecting this caveat was one of the
+%motivations for our current experimental approach.
 
 The plots also show noticeable regularities in the way transformations
 vary. To discuss these we distinguish between the two axes of
@@ -1049,14 +1053,17 @@ mechanisms that allow bursts to relate to their neighbouring operations
 (both preceding and following). Similarly, accounting for exchanges with
 a generative model also requires at least a memory component that is
 capable of recalling the postponed part of an exchange. Such mechanisms
-are beyond the score of this chapter, and we therefore focus on
-developing a descriptive---rather than generative---model. While it will
-not allow for a reconstruction of the transformation process, this
-approach will provide a synthetic understanding of the transformation
-behaviour without needing to rely on cognitive mechanisms. By
-abstracting out the basic building blocks of transformations, we will
-then be able to gradually increase the level of detail with which we
-understand the regularities of their interactions.
+are beyond the scope of this paper, and we therefore focus on
+developing a descriptive---rather than generative---model. This will
+already provide 
+%While it will
+%not allow for a reconstruction of the transformation process, this
+%approach will provide 
+a synthetic understanding of the transformation
+behaviour without relying on cognitive mechanisms. 
+%By abstracting out the basic building blocks of transformations, we will
+%then be able to gradually increase the level of detail with which we
+%understand the regularities of their interactions.
 
 \subsubsection{Descriptive transformation
 model}\label{descriptive-transformation-model}
@@ -1098,6 +1105,7 @@ that we can measure the distance between two blocks of insertions and
 deletions (except if the two blocks are separated by operations involved
 in an exchange).
 
+\rk{I'd make \Cref{fig:gistr-utterance-arrays} independent, it's a different aspect. Don't you think ? By the way are we really using the notion of T or C event somewhere ? I find these notations possibly ambiguous and perhaps superfluous. Further, and this is perhaps more critical, I don't understand the role of the dark bands in all presentations. Nothing seems to happen in these bands : is it a matter of esthetics ? I think this is possibly confusing. This bears an impact on the two main figures.}
 \Cref{fig:gistr-utterance-arrays} illustrates this simplification of
 transformations, which we use as our model for the process: it
 represents a transformation as two arrays of word-level operations, one
@@ -1120,7 +1128,7 @@ operations as the number of conservations or replacements separating the
 two. For instance, a chunk-level insertion can appear two words after a
 chunk-level deletion, and this information will be useful when comparing
 the sizes of chunk-level insertions and deletions in a given
-transformation. When unpaired conservations or replacements separate
+transformation.\rk{Here, I'd put a concrete example again, because I myself don't see very well what this translates to}  When unpaired conservations or replacements separate
 chunk-level insertions and deletions, however, this distance will remain
 undefined.
 
@@ -1131,16 +1139,17 @@ undefined.
 \section{Results}\label{sec:gistr-results-inner}
 
 Having defined our model for transformations, we now delve into the
-detailed behaviour that it captures. We do so in three stages. First, we
-quantify the extent to which transformations are bursty, both in the
-branch dimension and in the detailed transformation model (utterance
-dimension). In doing so we establish the prevalence of chunk-level
-operations in the transformation model. We then characterise the number
-of word-level and chunk-level operations that occur in utterances,
-linking their magnitude and probability to the length of the parent
-utterance and the position at which they occur. Finally, we examine the
-dependencies between each operation type, and highlight a close
-relationship between insertions and deletions.
+detailed behaviour that it captures in terms of operation burstiness, magnitude, likelihood and correlation.
+%%. We do so in three stages. First, we
+%%quantify the extent to which transformations are bursty, both in the
+%%branch dimension and in the detailed transformation model (utterance
+%%dimension). In doing so we establish the prevalence of chunk-level
+%%operations in the transformation model. We then characterise the number
+%%of word-level and chunk-level operations that occur in utterances,
+%%linking their magnitude and probability to the length of the parent
+%%utterance and the position at which they occur. Finally, we examine the
+%%dependencies between each operation type, and highlight a close
+%%relationship between insertions and deletions.
 
 \subsection{Bursty behaviours}\label{bursty-behaviours}
 
@@ -1153,7 +1162,7 @@ events through the parameter \(B\) defined as
 
 where \(\sigma_{intervals}\) and \(\mu_{intervals}\) are respectively
 the standard deviation and mean of the distribution of inter-event times
-in the series of events. The same computation applies to arrays of
+in the series of events.\rk{Un peu confusing de reparler de series of events alors qu'on les a envoyé balader précédemment.  Je pense qu'il faudrait dire direct qu'on s'inspire de Barabasi mais e.g., qu'il s'agit de mesures sur les longueurs comme unités de temps.} The same computation applies to arrays of
 operations (the two have the same mathematical description). \(B\) has
 values between -1 and 1; \(B = -1\) corresponds to a perfectly regular
 process (\(\sigma_{intervals} = 0\), and \(\mu_{intervals} > 0\) is the
@@ -1169,13 +1178,13 @@ long intervals without events, and a process with an average inter-event
 time longer than its standard deviation will have events more evenly
 spaced relative to their mean spacing.
 
-Note that this measure can be applied to any series of events, and we
-therefore use it in both the utterance and the branch dimensions. In the
-utterance dimension, it tells us the extent to which the changes that a
-subject makes in an utterance tend to occur in contiguous chunks. We
-will see that this chunkiness is very strong, so much that we will start
-examining insertions and deletions and the level of chunks. In the
-branch dimension, the measure tells us how bursty the evolution along a
+%Note that this measure can be applied to any series of events, and we
+%therefore use it in both the utterance and the branch dimensions. 
+In the utterance dimension, this measure tells us to which extent changes 
+tend to occur in contiguous chunks. 
+%We will see that this chunkiness is very strong, so much that we will start
+%examining insertions and deletions and the level of chunks. 
+In the branch dimension, the measure tells us how bursty the evolution along a
 branch is. A bursty evolution would indicate a punctuated equilibria
 behaviour, with long periods of stability interrupted by sudden bursts
 of transformations. A non-bursty behaviour would indicate that a
@@ -1210,7 +1219,25 @@ operation); computing the burstiness of the chunk-level process is
 therefore straightforward. The values plotted in
 \cref{fig:gistr-utterance-burstiness-chunks} show that none of the
 chunk-level processes are bursty; rather, they are slightly more regular
-than a Poisson process would be.
+than a Poisson process would be.\footnote{\rk{J'ai mis tout ça en footnote (je sais, je tronçonne !). On peut aussi l'envoyer en annexe ou l'enlever tout court, tout me va...} 
+Although this behaviour is consistent with our intuition of the way an
+utterance is reformulated, there is a question as to whether the
+alignment procedure does not favour burstiness. Indeed, the scores of
+operations are parametrised in such a way that insertion and deletion
+gaps are assigned different costs for initial opening and extension.
+However, while this parametrisation makes it possible for burstiness to
+be more easily identified, it does not make it a necessity: setting the
+gap opening cost to the same value as the gap extension cost would make
+the alignment tool neutral with respect to burstiness (setting it lower
+would be biased against burstiness, and the alignment algorithm would
+favour word mismatches over gaps to encode differences). In our case,
+the parameters we trained set the gap opening cost to a much higher
+value than the extension cost (.29 vs. .12 in absolute values), such
+that the alignment tool does find bursty insertions and deletions more
+easily. However, these parameters are learned from hand-coded alignments
+and their output has been validated on test samples: any bursty
+insertions or deletions detected by the alignments is therefore the
+product of the data itself, and not an artefact.}
 
 \begin{figure*}[!ht]
   \centering
@@ -1233,24 +1260,7 @@ than a Poisson process would be.
   \label{fig:gistr-utterance-burstiness}
 \end{figure*}
 
-Although this behaviour is consistent with our intuition of the way an
-utterance is reformulated, there is a question as to whether the
-alignment procedure does not favour burstiness. Indeed, the scores of
-operations are parametrised in such a way that insertion and deletion
-gaps are assigned different costs for initial opening and extension.
-However, while this parametrisation makes it possible for burstiness to
-be more easily identified, it does not make it a necessity: setting the
-gap opening cost to the same value as the gap extension cost would make
-the alignment tool neutral with respect to burstiness (setting it lower
-would be biased against burstiness, and the alignment algorithm would
-favour word mismatches over gaps to encode differences). In our case,
-the parameters we trained set the gap opening cost to a much higher
-value than the extension cost (.29 vs. .12 in absolute values), such
-that the alignment tool does find bursty insertions and deletions more
-easily. However, these parameters are learned from hand-coded alignments
-and their output has been validated on test samples: any bursty
-insertions or deletions detected by the alignments is therefore the
-product of the data itself, and not an artefact.
+
 
 Let us now step back and look at the evolution along the branches, that
 is, the branch dimension. We ask whether the fact that an utterance is
