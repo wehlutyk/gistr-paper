@@ -1,4 +1,5 @@
 # Latexmk stuff
+*.abs
 *.aux
 *.bbl
 *.bcf
@@ -7,8 +8,10 @@
 *.fdb_latexmk
 *.fls
 *.log
+*.out
 *.run.xml
 *.xdv
+*~
 
 # Built pdfs
 *.pdf
