@@ -1,57 +1,73 @@
-\section{Results}\label{sec:gistr-results}
-
-Recall that the goal we set ourselves is to provide a better
-understanding of the process at work than what low-level feature
-analyses such as that of the previous chapter have shown. In doing so we
-also hope to bring some light to the processes underlying high-level
-contrasts of utterance categories that have been extensively studied in
-the literature. The analysis we present is thus geared towards creating
-an intermediary representation of the effect of transformations on
-utterances, one that is at a midpoint between the low-level of word
-features and the high-level of category contrasts, and can be usefully
-modelled to better understand the evolution of utterance chains. Since
-this work was exploratory in nature, our presentation will also loosely
-follow a step-by-step development of the analysis with intermediate
-results. Our analysis consists in five broad steps. First, a
-presentation of the general trends observed in the collected data, which
-provide a coarse but relevant view of the behaviour of utterance
-reformulations in these experiments. Second, the actual procedure
-developed to break down transformations into smaller blocks and grasp
-their detail. Third, we develop a descriptive model of transformations
-based on the detailed view that the previous step provided. We then
-refine this view by quantifying the main behaviours that the model lets
-us identify in the transmission chains. Finally, we characterise the
-lexical features of the words identified by the transformation model,
-and show how the accumulation of transformations gradually evolves the
-average features of utterances. We begin with the general trends
-observed in the data.
-
 \subsection{General trends}\label{sec:gistr-results-general}
 
-We begin the analysis of our three data sets by examining the evolution
-of aggregate measures as a function of depth in the trees. Here and in
-what follows, the analyses are made on the data cleaned of spam, and
-chains truncated at their target depth (depths 8, 7 and 10 for Experiments 1, 2 and 3 respectively). We first provide an overview on the data and a few important surface trends related to the global conservation and loss of content, before proposing a more detailed model at the level of transformations.
+Several trends in the data can be seen in the evolution of aggregate measures as a function of depth in the trees. Here and in what follows, we focus on the data cleaned of spam, with chains truncated at their target depth (depths 8, 7 and 10 for Experiments 1, 2 and 3 respectively).
+
+The following three surface measures are commonly used to describe the behaviour of transmission chains:
+
+\begin{itemize}
+	\item \textbf{Utterance length:}
+	Transmission chains commonly quickly degrade the items transmitted, an effect we observe in the reduction of utterance length as chains progress.
+	
+	\item \textbf{Transmissibility:}
+	
+	
+	\item \textbf{Variability:}
+	
+	
+\end{itemize}
+
+\cref{fig:length-loss} plots the average length of an utterance relative to the branch root, as a function of depth.
+
+	
+%We first provide an overview of the data and a few important surface trends related to the global conservation and loss of content, before proposing a more detailed model at the level of transformations.
+
+\begin{figure}[!ht]
+  \centering
+  \subfloat[Utterance length]{
+    \includegraphics[width=.3\linewidth]{images/computed/length_loss-all_exps.png}
+    \label{fig:length-loss}
+  }
+  \subfloat[Transmissibility]{
+    \includegraphics[width=.3\linewidth]{images/computed/transmissibility-all_exps.png}
+    \label{fig:transmissibility}
+  }
+  \subfloat[Variability]{
+    \includegraphics[width=.39\linewidth]{images/computed/variability-all_exps.png}
+    \label{fig:variability}
+  }
+  \caption{
+  \textbf{Descriptive trends:}
+  (a) Number of words relative to number of words in the branch root, averaged over all utterances at a given depth. The dotted line plots the same measure restricted to content words only.
+  (b) Transmissibility of utterances as a function of depth, averaged over all utterances at a given depth.
+  (c) Variability of a tree slice as a function of depth, averaged over all trees.
+  Shaded areas in the three plots represent 95\% confidence intervals (Student's $t$-based).
+  }
+  \label{fig:general-trends}
+\end{figure}
+
 
 \subsubsection{Utterance length}\label{utterance-length}
 
-A well-known effect in transmission chains with linguistic content is
-the quick reduction of utterance length as chains progress. These
-experiments are no exception: \cref{fig:gistr-token-lengths} shows a
-scatter plot of the number of words of an utterance \(|u|_w\) versus
-depth in a tree.\footnote{All NLP computations in this chapter are
-  performed using the spaCy library for Python, version 1.9.0, available
-  at \url{http://spacy.io/}.} The insets show the data restricted to
-trees for which root utterances have 30 words or less (thus most
-utterances in those trees also have 30 words or less); this boundary
-keeps all the Fénéon root utterances in Experiment 3, and we use it to
-separate longer from shorter utterances for the purposes of this figure.
+%A well-known effect in transmission chains with linguistic content is
+%the quick reduction of utterance length as chains progress. These
+%experiments are no exception: \cref{fig:gistr-token-lengths} shows a
+%scatter plot of the number of words of an utterance \(|u|_w\) versus
+%depth in a tree.\footnote{All NLP computations in this chapter are
+%  performed using the spaCy library for Python, version 1.9.0, available
+%  at \url{http://spacy.io/}.}
+%The insets show the data restricted to
+%trees for which root utterances have 30 words or less (thus most
+%utterances in those trees also have 30 words or less); this boundary
+%keeps all the Fénéon root utterances in Experiment 3, and we use it to
+%separate longer from shorter utterances for the purposes of this figure.
 The plots confirm that the number of words quickly decreases as subjects
 read and rewrite utterances, and indicate that the reduction depends on
-the size of what is being transformed: very long utterances (above 100
-words) are reduced to less than 100 words in 2 reformulations or less,
-whereas root utterances with up to 28 words can maintain their size
-until the end of the branches of Experiment 3. Note that the differences
+the size of what is being transformed:
+% very long utterances (above 100
+%words) are reduced to less than 100 words in 2 reformulations or less,
+%whereas root utterances with up to 28 words can maintain their size
+%until the end of the branches of Experiment 3.
+Note that the differences
 in the speed of size reduction across the experiments are tied to
 surface features of the root utterances. Word count and average word
 frequency in particular, which we will later show are strongly related
@@ -345,6 +361,34 @@ allows us to observe. In what follows we focus on the data set from
 Experiment 3, which provides the best quality of data and sampling of
 transformations. The procedure we present is applicable to the other two
 experiments, but we will not discuss those applications here.
+
+
+
+\section{Results}\label{sec:gistr-results}
+
+Recall that the goal we set ourselves is to provide a better
+understanding of the process at work than what low-level feature
+analyses such as that of the previous chapter have shown. In doing so we
+also hope to bring some light to the processes underlying high-level
+contrasts of utterance categories that have been extensively studied in
+the literature. The analysis we present is thus geared towards creating
+an intermediary representation of the effect of transformations on
+utterances, one that is at a midpoint between the low-level of word
+features and the high-level of category contrasts, and can be usefully
+modelled to better understand the evolution of utterance chains.
+% Since
+%this work was exploratory in nature, our presentation will also loosely
+%follow a step-by-step development of the analysis with intermediate
+%results.
+In this section we first present the procedure developed to break down transformations into smaller blocks and grasp
+their detail. We then develop a descriptive model of transformations
+based on the detailed view that the previous step provided.
+The next section will present the main behaviours that the model lets
+us identify and quantify in the transmission chains. We also characterise the
+lexical features of the words identified by the transformation model,
+and show how the accumulation of transformations gradually evolves the
+average features of utterances.
+
 
 \subsection{Transformation breakdown}\label{transformation-breakdown}
 
