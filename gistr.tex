@@ -64,7 +64,7 @@
 \newcommand{\tb}[1]{\textcolor{blue}{#1}}
 \newcommand{\rk}[1]{\tb{{\footnotesize {\bf[\emph{#1}]}}}}
 \newcommand{\marginnote}[1]{\marginpar{{\parbox{1.\linewidth}{\hrulefill\\\tb{\scriptsize \sf #1}}}}}
-\newcommand{\cam}[1]{\tb{\small{[{\bf C:} }#1{]}}}
+\newcommand{\cam}[1]{\tb{\small{[{\bf C:} #1{]}}}}
 \newcommand{\seb}[1]{\tb{\small{[{\bf S:} #1{]}}}}
 
 % If citations or references are missing, make it visible
@@ -256,7 +256,7 @@ In a slightly different setting, \citet{danescu-niculescu-mizil_you_2012} study 
 
 In an in vitro setting, linguistic content evolution is found in the study of intrusions in the recall of word lists \citep[see][for a review]{zaromb_temporal_2006}, and in the study of word replacements and simple syntactic changes in short sentences \citep{potter_regeneration_1990,lombardi_regeneration_1992}.
 %the observation of linguistic content evolution can be found in the study of intrusions in the recall of word lists \citep[see][for a review]{zaromb_temporal_2006}, and in the study of word replacements and simple syntactic changes in short sentences \citep{potter_regeneration_1990,lombardi_regeneration_1992}.
-These are much simpler transformations than transformations of complete sentences, and are thus more amenable to statistical analysis. Note that a similar focus on lower-dimensional changes is found in non-linguistic studies, such as iterated learning on sequences of colour items for which standard regularity metrics exist \citep{cornish_systems_2013}, or transmission chains of constrained visual patterns such as those used by \citet{claidiere_cultural_2014}. Both cases feature discrete and combinatorial pieces of content, for which it is possible to use standard notions of distance, equality, or regularity in transformation.
+These are much simpler than transformations of complete sentences, and are thus more amenable to statistical analysis. Note that a similar focus on lower-dimensional changes is found in non-linguistic studies, such as iterated learning on sequences of colour items for which standard regularity metrics exist \citep{cornish_systems_2013}, or transmission chains of constrained visual patterns such as those used by \citet{claidiere_cultural_2014}. Both cases feature discrete and combinatorial pieces of content, for which it is possible to use standard notions of distance, equality, or regularity in transformation.
 
 
 
@@ -423,7 +423,7 @@ idealised version of the read-remember-rewrite process which, we
 hypothesised, participates in the evolution of quotations in blogspace
 and media outlets. It also provides the information that our previous
 data set lacked in order to analyse the complete transformations of
-quotations, as well as the long-term effect of those changes: the links
+quotations, and the long-term effect of those changes: the links
 between parent and child sentences are naturally encoded in the data,
 such that the transformations undergone by each sentence can be studied
 in full detail. There is no need to restrict ourselves to simpler
@@ -568,41 +568,42 @@ aim to simulate.
 chains}\label{general-setup-for-web-based-transmission-chains}
 
 The balance achieved by Web-based experiments is well adapted to the
-requirements we outlined above. Since no existing system would fit our
-needs, we chose to develop a tailored Web-based platform that could run
-transmission chains as Web experiments. Once ready, the platform would
-allow us to gather sufficient amounts of quality data in short cycles.
-We further decided to implement the simplest possible version of the
-transmission chain paradigm that is still viable, and leave the
-exploration of more complex setups for future research: the task we used
-asks subjects to read and memorise a short utterance, wait a few
-seconds, then rewrite what they have read as accurately as possible. We
-ran three main experiments using this evolving platform, and many
-smaller pilots in between to test lessons learned in the larger runs and
-adjust task parameters and source complexity. The overall quality of the
-data we gathered thus gradually increased. In what follows we present
-the general setup of the experiments, the data quality evaluation along
-with the changes implemented to improve it, and finally the adjustment
-of task complexity. Let us start with the architecture common to all
-experiments.
+requirements we outlined above. Since no existing system would fit our needs, we
+chose to develop a tailored Web-based platform that could run transmission
+chains as Web experiments. Once ready, the platform would allow us to gather
+sufficient amounts of quality data in short cycles. We further decided to
+implement the simplest possible version of the transmission chain paradigm that
+is still viable, and leave the exploration of more complex setups for future
+research: the task we used asks subjects to read and memorise a short utterance,
+wait a few seconds, then rewrite what they have read as accurately as possible.
+We ran several small pilots to adjust parameters and source complexity, thus
+increasing overall data quality, then ran two main experiments on the final
+platform.
+% and many smaller pilots in between to test lessons learned in the larger runs
+% and adjust task parameters and source complexity.
+% The overall quality of the
+% data we gathered gradually increased with the pilots.
+In what follows we present the general setup of the experiments, the data
+quality evaluation and improvements, and the adjustment of task complexity.
+% We start with the architecture common to all experiments.
 
-A transmission chain is defined by a type of content transmitted, a
-transmission task, and a layout defining which subject production is
-used as the source input for the next subject. In our implementation,
-subjects are presented with an utterance to memorise with no surrounding
-context; no distraction task is used between the reading and writing
-phases, and the material incentive for the task is purely monetary
-(although as we describe below we fine-tuned the interface to strongly
-encourage subjects to be conscientious). The experiment is available to
-subjects as a website, and passing it involves going through a welcome and sign-up screen, answering a preliminary questionnaire, and training for the main task, where subjects are asked to repeatedly
-  memorise and rewrite short utterances as accurately as possible.
-  As the instructions illustrated in \cref{fig:gistr-instructions}
-  indicate, an utterance is presented to the subject and after a short
-  pause they are asked to rewrite it as remembered. The process loops
-  until the subject has completed all the utterances assigned to them
-  (calibrated so that completing the experiment lasts at most one hour).
-  The real trials started after 3 to 5 training trials, depending on the
-  overall experiment length.
+A transmission chain is defined by a type of content transmitted, a transmission
+task, and a layout defining which subject production is used as the source input
+for the next subject. In our implementation, subjects are presented with an
+utterance to memorise with no surrounding context; no distraction task is used
+between the reading and writing phases, and the material incentive for the task
+is purely monetary (although as we describe below we fine-tuned the interface to
+strongly encourage subjects to be conscientious). The experiment is available to
+subjects as a website, and passing it involves going through a welcome and
+sign-up screen, answering a preliminary questionnaire, and training for the main
+task where subjects are asked to repeatedly memorise and rewrite short
+utterances as accurately as possible. As the instructions illustrated in
+\cref{fig:gistr-instructions} indicate, an utterance is presented to the subject
+and after a short pause they are asked to rewrite it as remembered. The process
+loops until the subject has completed all the utterances assigned to them
+(calibrated so that completing the experiment lasts at most one hour). The real
+trials started after 3 to 5 training trials, depending on the overall experiment
+length.
 
 This simple setup lets us quickly gather data sets of several thousand
 utterance transformations, ensuring our results will be comparable to
@@ -616,7 +617,7 @@ Each utterance from the initial set is used to create several parallel
 chains in order to allow for comparisons across chains with the same
 initial utterance. The final data thus consists of a set of
 reformulation trees, where each tree branch is a transmission chain
-started from the tree root, and continuing until it reaches a target
+started from the tree root, which continues until it reaches a target
 depth defined for the experiment. We therefore use the terms
   \enquote{chain} and \enquote{branch} interchangeably in what follows.
 The number of branches in a tree is also adjusted for each run of the
@@ -626,7 +627,7 @@ order, such that all the reformulations in a given tree are made by
 distinct subjects, and nearly all subjects (excluding dropouts) are
 present in each tree. Satisfying this constraint means that we must
 always have at least as many subjects as there are reformulations in a
-tree. As noted, a few subjects from Prolific Academic will usually not
+tree. As noted, a few subjects will usually not
 complete the whole set of utterances assigned to them; we thus recruit
 additional subjects to fill the trees that were left incomplete. This
 leads the other, already complete trees to receive more reformulations
@@ -638,7 +639,7 @@ assigned to the tip of one of the branches that have not yet reached the
 target depth: subjects are thus randomly distributed across branches,
 but their depth-ordering loosely corresponds to the time of arrival on
 the tree. In particular, if a subject starts the experiment after most
-other subjects have completed it, they will be mostly exposed to
+of the subjects have completed it, they will be mostly exposed to
 utterances deep in the branches. Due to the chained nature of the data,
 there is no economical way of countering this ordering bias.}
 
@@ -700,16 +701,15 @@ Amazon Mechanical Turk and geared towards academic research.
 
 Using the Prolific Academic service allowed us to select among a pool of
 over \num{26000} subjects, for which we used the following criteria: (i) first language English speaker, (ii) at least 18 years old, (iii) current country of residence and place of most time spent before
-  turning 18 must both be in the UK, (iv) normal or corrected-to-normal vision, (v) no diagnosed literary difficulties, (vi) completed secondary school and (vii) not having participated in any of the preceding experiments.
+  turning 18 must both be the UK, (iv) normal or corrected-to-normal vision, (v) no diagnosed literary difficulties, (vi) completed secondary school and (vii) not having participated in any of the preceding experiments or pilots.
 Only the first two constraints were enforced for the first experiment,
 and the full set was used for all subsequent runs. The full filter
 provided over \num{2300} eligible subjects, from which the service
 automatically sampled the requested number.
 
-Experiment 1 was the first non-trivial launch of the platform, with an
-initial 48 subjects, 54 root utterances, and trees targeted for 6
+The first non-trivial pilot using the platform had 48 subjects, 54 root utterances, and trees targeted for 6
 branches of depth 8. Subjects took an average 64 minutes to complete the
-experiment, and were rewarded with £6.5. We gathered a total of 2695 utterance reformulations, slightly above the planned \(54 \times 6 \times 8 = 2592\) reformulations due to a minor technical issue.
+experiment, and were rewarded with £6.5. The pilot gathered a total of 2695 utterance reformulations, slightly above the planned \(54 \times 6 \times 8 = 2592\) reformulations due to a minor technical issue (later fixed).
 %%A software bug that appeared
 %and had to be fixed halfway through the experiment led the Prolific
 %Academic service to recruit more subjects than was originally asked for,
@@ -728,15 +728,15 @@ Manual inspection
 showed that large portions of the data were of poor quality, both
 linguistically and because of technical inefficiencies leading to badly
 shaped trees; the sections below provide further details on these
-questions. Pilots following Experiment 1 were therefore aimed at
-improving data quality and solving tree shaping issues. Experiment 2 was
+questions. Smaller pilots following this one were therefore aimed at
+improving data quality and solving tree shaping issues. Experiment A was then
 launched with 49 subjects, 50 root utterances, and trees targeted for 7
 branches of depth 7, gathering a total 2450 utterance transformations.
 Subjects took an average 43 minutes to complete the experiment, and were
 rewarded with £6. Quality issues in this data set were solved, but the
 choice of source utterances proved too easy to trigger varied
 transformations. After pilots exploring different fits of task
-parameters with source complexity, Experiment 3 took advantage of a more
+parameters with source complexity, Experiment B took advantage of a more
 complex set of source utterances. It was launched with two batches of 70
 subjects each receiving 25 root utterances, and trees targeted for 7
 branches of depth 10, gathering a total 3546 utterance transformations.
@@ -771,14 +771,13 @@ not notice an important message.
 %%worse. Instead, t
 The interface must lead the subjects through the
 necessary explanations while remaining enjoyable, and must be
-unambiguous while still hinting towards the expected behaviour at the
+unambiguous while still directing attention towards the expected behaviour at the
 right moment, either through subtle interface reactions or through
 explicit contextual aids.
 %\subsubsection{Manual spam-coding}\label{manual-spam-coding}
 Failure to properly encourage and wherever possible enforce the
 experiment's expectations led to data riddled with spurious
-transformations. Manual inspection of the data collected through
-Experiment 1, for which a substantial effort on instructions and for the
+transformations. Manual inspection of the data collected through the first large pilot, for which a substantial effort on instructions and for the
 overall interface had already been made, showed that large portions of
 the data were not usable as such.
 
@@ -800,7 +799,7 @@ with any of the following properties was coded as spam:
   it is truncated or because so many words are garbled it becomes
   nonsense.
 \footnote{Note that the last two criteria are not sharp, and several borderline
-cases had to be decided for the last one in particular. In Experiment 1
+cases had to be decided for the last one in particular. In the pilot
 for instance, a subtle misunderstanding allowed by the interface led
 subjects to submit some sentences truncated at exactly 10 words, without
 regard to their meaning (see the details below); such utterances were
@@ -815,9 +814,9 @@ are arguably attributable to temporary distraction whose effects are
 relevant to our analysis. The benefit of the doubt was given to such
 utterances, and they were not coded as spam.}
 Spam in transmission chains has the additional property of invalidating
-all the subsequent utterances, leading to discard more utterances than the ones where subjects introduced spam for the first time.
-Coded this way, Experiment 1 showed an accumulated spam rate of 22.4\%.
-Combined with an initial technical oversight, where participants could concurrently participate in the same reformulation on the same branch and which led a small portion of
+all the subsequent utterances, and one must discard many more utterances than the ones where subjects introduced spam for the first time.
+Coded this way, the pilot showed an accumulated spam rate of 22.4\%.
+Combined with an initial technical issue, where participants could concurrently participate in the same reformulation on the same branch and which led a small portion of
 utterances to be misplaced in the chains,
 %%\footnote{Ensuring that no two
 %%  subjects are creating reformulations for the same chain tip at the
@@ -833,11 +832,11 @@ utterances to be misplaced in the chains,
 %%  insufficient: 3.5\% of the utterances posted by subjects were forks
 %%  deep in the chains. Experiments 2 and 3 relied on a mix of client-side
 %%  randomisation and server-side locking to solve the problem.}
-a total of 25.9\% of the utterances generated by Experiment 1 were discarded.
+a total of 25.9\% of the utterances generated by the pilot were discarded.
 The number of valid transformations garnered by this experiment thus
 went from 2695 to 1980. Apart from reducing the size of the usable data,
 spam also leads to uneven chains across trees, a heterogeneity that
-complicates the analysis. Accepting this level of spam was therefore not
+would question later conclusions. Accepting this level of spam was therefore not
 an option.
 
 The main tool we used to reduce the level of spam is the user interface.
@@ -846,13 +845,16 @@ subjects' actions combined with relevant context-dependent information
 can have a comparatively large impact on spam.
 The situation is similar to that of surveys, where much effort is put
 into mitigating the risk of users engaging the minimum possible effort
-to complete the survey \citep{krosnick_threat_2000}. Successfully
+to answer questions \citep{krosnick_threat_2000}. Successfully
 tuning the user interface is therefore a crucial factor in the quality
 of the data collected: what the interface might lead subjects to see as
 acceptable can easily be spam for the experimenter, and both
-perspectives must be aligned as much as possible. Interface design
-problems appeared repeatedly throughout the development of the platform
-and the pilots. The most important points can be summed up as follows:
+perspectives must be aligned as much as possible.
+Substantial efforts were therefore put into the details of the interface throughout development and piloting,
+% Interface design
+% problems appeared repeatedly throughout the development of the platform
+% and the pilots.
+\footnote{\rk{Move to Annex} The most important points can be summed up as follows:
 (i)
   \emph{Preventing digital copy-paste} (an obvious workaround)
   %: an obvious workaround to the
@@ -937,12 +939,12 @@ and the pilots. The most important points can be summed up as follows:
 %%  read them. Experiments 2 and 3 made navigating the complete list of
 %%  instructions mandatory in order to start the trials.
 %%\end{itemize}
-
-These changes reduced the spam rate drastically. On the same criteria as
-Experiment 1, Experiment 2 showed an accumulated spam rate of .8\%,
+}
+eventually reducing the spam rate drastically. On the same criteria as
+the pilot, Experiment A showed an accumulated spam rate of .8\%,
 which combined with misplaced utterances led to a total 1.4\% of
 utterances discarded (leading to a final 2411 valid transformations).
-Experiment 3 showed an accumulated spam rate of 1.0\%, and with
+Experiment B showed an accumulated spam rate of 1.0\%, and with
 misplaced utterances had to discard a total 1.1\% of the data (leading
 to a final 3506 valid transformations).
 
@@ -979,7 +981,7 @@ is not linear with \(r\). Whatever the value of \(r\), longer utterances
 (more than 25 words) are often more transformed, relative to their
 length, than shorter utterances; longer utterances also give more space
 for the subjects to reformulate, leading to more changes in style and
-permutations in the words. Changing \(r\) has less effect on shorter
+permutations in the words. Changing \(r\) has less of an effect on shorter
 utterances than on longer utterances, and on utterances in oral versus
 written style. For short utterances in an oral style, pilots indicated
 that there is an abrupt transition between a low transformation regime
@@ -999,9 +1001,11 @@ information hierarchy, and counter-intuitiveness
 and authors have suggested that these outcomes are related to
 domain-specific biases in transformations (although to our knowledge
 these effects have not yet been studied jointly). In spite of this, we
-hypothesise that the low-level cognitive mechanisms underlying utterance
-transformation, that is the mechanisms that give rise to such
-accumulated outcomes, do not fundamentally change because of the type or
+hypothesise that
+% the low-level cognitive mechanisms underlying utterance
+% transformation, that is
+the mechanisms that give rise to such
+accumulated outcomes do not fundamentally change because of the type or
 the style of an utterance. If using news quotes instead of movie quotes
 or stories is likely to affect parameters of the observed
 transformations, it is less likely to affect the structure of the
@@ -1021,66 +1025,80 @@ general structure more visible, thus easier to measure and characterise.
 %%helping the subjects to produce quality data by not creating too much
 %%pressure with reading time.}
 
-The set of sources used in Experiment 1 covered a broad spectrum of
-utterance types sampled from the following categories:
+Our initial set of sources aimed to cover a
+broad spectrum of utterance types: quotes found in blog posts
+\citep{leskovec_meme-tracking_2009,lerique-2018-semantic-drift}, famous
+compelling quotes from Wikisource\footnote{\url{https://en.wikisource.org/}.},
+quotes extracted from movies, excerpts from controversial news stories
+\citep{moussaid_amplification_2015}, tales
+\citep{bartlett_remembering:_1995}\footnote{See the original text online at
+\url{http://penta.ufrgs.br/edu/telelab/2/war-of-t.htm}.}, and simple
+hand-crafted sentences with surprising statements.
+%% The set of sources used in Experiment 1 covered a broad spectrum of
+%% utterance types sampled from the following categories:
+%% \begin{itemize}
+%% \item
+%%   Quotes found in blog posts from the MemeTracker data set \citep{leskovec_meme-tracking_2009} and used in a recent article on sentence reformulation \citep{lerique-2018-semantic-drift},
+%% \item
+%%   Famous compelling quotes from Wikisource\footnote{\url{https://en.wikisource.org/}.}
+%%   such as \enquote{Never doubt that a small group of thoughtful
+%%   committed citizens can change the world, it is the only thing that
+%%   ever has},
+%% \item
+%%   Quotes extracted from the movie \emph{12 Angry Men} such as
+%%   \enquote{If you ask me I'd slap those tough kids down before they
+%%   start any trouble, it saves a lot of time and money},
+%% \item
+%%   Excerpts from news stories on controversial subjects (such as
+%%   \enquote{How will the cultural and religious aspects of so many
+%%   migrants impact E.U. society?}) or risk-related subjects such as
+%%   stories about the risks of Triclosan \citep%[used by][ in their  study of the amplification of risk perception]
+%% {moussaid_amplification_2015},
+%% \item
+%%   The tale \enquote{War of the Ghosts} used by
+%%   \citet{bartlett_remembering:_1995} in his original
+%%   studies,\footnote{Available online at
+%%     \url{http://penta.ufrgs.br/edu/telelab/2/war-of-t.htm}.} as well as
+%%   excerpts from other tales,
+%% \item
+%%   A small number of hand-crafted sentences such as surprising statements
+%%   (\hbox{e.g.} \enquote{Don't forget to leave the door open when you leave the
+%%   office}) or stereotype-incongruent statements (\hbox{e.g.} \enquote{The young
+%%   boy was suddenly hit by the little girl}).
+%% \end{itemize}
+%% Each of these categories, we thought, could encourage the triggering of
+%% diverse transformations.
+%% The spam level of Experiment 1, and especially the
+%% amount of misspelled words, made the exploration of the detailed
+%% transformations impossible and shifted the focus towards improving data
+%% quality through the interface.
+%% Nonetheless, it became clear that using
+%% such a heterogeneous set of utterances could surprise subjects, and was
+%% not the best approach to elicit regularities in transformations.
+%% Experiments 2 and 3 relied on a more thorough exploration of possible
+%% source data sets.
+Pilots further explored utterances used in studies on personification and
+stereotyping \citep{bangerter_transformation_2000}, on disgust
+\citep{heath_emotional_2001}, on incoherence
+\citep{maxwell_remembering_1936}, and on social information
+\citep{mesoudi_bias_2006}. Each of these categories, we thought, could
+encourage the triggering of diverse transformations; but manual exploration of
+the pilots made it clear that using such a heterogeneous set of utterances could
+surprise subjects, and was not the best approach to elicit regularities in
+transformations
 
-\begin{itemize}
-\item
-  Quotes found in blog posts from the MemeTracker data set \citep{leskovec_meme-tracking_2009} and used in a recent article on sentence reformulation \citep{lerique-2018-semantic-drift},
-\item
-  Famous compelling quotes from Wikisource\footnote{\url{https://en.wikisource.org/}.}
-  such as \enquote{Never doubt that a small group of thoughtful
-  committed citizens can change the world, it is the only thing that
-  ever has},
-\item
-  Quotes extracted from the movie \emph{12 Angry Men} such as
-  \enquote{If you ask me I'd slap those tough kids down before they
-  start any trouble, it saves a lot of time and money},
-\item
-  Excerpts from news stories on controversial subjects (such as
-  \enquote{How will the cultural and religious aspects of so many
-  migrants impact E.U. society?}) or risk-related subjects such as
-  stories about the risks of Triclosan \citep%[used by][ in their  study of the amplification of risk perception]
-{moussaid_amplification_2015},
-\item
-  The tale \enquote{War of the Ghosts} used by
-  \citet{bartlett_remembering:_1995} in his original
-  studies,\footnote{Available online at
-    \url{http://penta.ufrgs.br/edu/telelab/2/war-of-t.htm}.} as well as
-  excerpts from other tales,
-\item
-  A small number of hand-crafted sentences such as surprising statements
-  (\hbox{e.g.} \enquote{Don't forget to leave the door open when you leave the
-  office}) or stereotype-incongruent statements (\hbox{e.g.} \enquote{The young
-  boy was suddenly hit by the little girl}).
-\end{itemize}
-
-Each of these categories, we thought, could encourage the triggering of
-transformations. The spam level of Experiment 1, and especially the
-amount of misspelled words, made the exploration of the detailed
-transformations impossible and shifted the focus towards improving data
-quality through the interface. Nonetheless, it became clear that using
-such a heterogeneous set of utterances could surprise subjects, and was
-not the best approach to elicit regularities in transformations.
-Experiments 2 and 3 relied on a more thorough exploration of possible
-source data sets. Pilots explored utterances extracted from previous
-studies \citetext{\citealp{bangerter_transformation_2000} on personification and increased
-stereotypes, \citealp{heath_emotional_2001} on the role of disgust, \citealp{maxwell_remembering_1936} on incoherent stories, \citealp{mesoudi_bias_2006} for the role of social information}.
-
-Two larger and more homogeneous sets of utterances were reconstituted
-and finally used in Experiments 2 and 3. First, a set of movie quotes
-provided by \citet{danescu-niculescu-mizil_you_2012}. This data set
-contains about 2200 pairs of quotes extracted from 1000 movie scripts;
-each pair is made of a quote that was marked as memorable by users of
-the Internet Movie Database, coupled with the closest quote in the same
-movie script that is spoken by the same character, has the same number
-of words, but is not marked as memorable on the Internet Movie Database.
-The 2200 pairs of quotes were filtered to keep only those which passed
-the spelling and punctuation quality tests from the previous section,
-and for which the number of words was strictly matched when excluding
-punctuation (this left 505 pairs). Here is an example pair from this
-data set (first the memorable quote, then the non-memorable
-counterpart):
+Two larger and more homogeneous sets of utterances were therefore reconstituted
+for Experiments A and B. First, a set of movie quotes provided by
+\citet{danescu-niculescu-mizil_you_2012}. This data set contains about 2200
+pairs of quotes extracted from 1000 movie scripts; each pair is made of a quote
+that was marked as memorable by users of the Internet Movie Database, coupled
+with the closest quote in the same movie script that is spoken by the same
+character and has the same number of words, but is not marked as memorable on the
+Internet Movie Database. The 2200 pairs of quotes were filtered to keep only
+those which passed the spelling and punctuation quality tests from the previous
+section, and for which the number of words was strictly matched when excluding
+punctuation (this left 505 pairs). Here is an example pair from this data set
+(first the memorable quote, then the non-memorable counterpart):
 
 \begin{quote}
 \enquote{The first and most important rule of gunrunning is never get
@@ -1092,12 +1110,11 @@ shot with your own merchandise.}
 their word.}
 \end{quote}
 
-Second, a set of short stories from \citet{feneon_novels_2007} was
-used. These stories are productions from Félix Fénéon originally
-anonymously published in the French newspaper \emph{Le Matin} in 1906.
-They describe facts from everyday life such as accidents, suicides, or
-trials, in a terse and sometimes humorous style. The following example
-illustrates the style of these stories:
+Second, a set of short stories from \citet{feneon_novels_2007} was used. These
+stories were anonymously published in 1906 by Félix Fénéon in the French
+newspaper \emph{Le Matin}. They describe facts from everyday life such as
+accidents, suicides, or trials, in a terse and sometimes humorous style. For
+instance:
 
 \begin{quote}
 \enquote{An unidentified maker of paste jewels from the third district
@@ -1108,18 +1125,15 @@ gone.}
 A sample of 60 stories was extracted from the English version, for which
 French names and places were replaced with names and places more
 familiar to British subjects. Pilots explored these sets of utterances
-with reading factors of .1, .2, .3, .75 and 1. Finally, tests were also
+with reading factors of .1, .2, .3, .75 and 1.\footnote{Tests were also
 made using these utterances with content words replaced with
-pseudo-words, in order to restrict effects to the grammatical dimension
-only.\footnote{Pseudo-words were generated using the Wuggy library
-  \citep{keuleers_wuggy:_2010}.} The pseudo-word tests turned out not
+pseudo-words generated by the Wuggy library \citep{keuleers_wuggy:_2010}, in order to restrict effects to the grammatical dimension only. The pseudo-word tests turned out not
 to fit our exploration framework however, as the task became too
-confusing and subjects often replaced unknown words with real words.
-
-Experiment 2 used 25 of the 27 pairs of movie quotes that had exactly 15
+confusing and subjects often replaced unknown words with real words.}
+Experiment A used 25 of the 27 pairs of movie quotes that had exactly 15
 or 16 words, providing a homogeneous set of 50 utterances in oral style,
-with a reading factor of .75. Experiment 3 used 43 of the 60 short
-stories by Fénéon (average number of words \num{21.2}) coupled with 4
+with a reading factor of .75. Experiment B used 43 of the 60 short
+stories by Fénéon (average number of words \num{21.2}), 4
 utterances extracted from \citet{mesoudi_bias_2006} (average number
 of words \num{60.3}) and 3 utterances extracted from the story used by
 \citet{maxwell_remembering_1936} (average number of words
